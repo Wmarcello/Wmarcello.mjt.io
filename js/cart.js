@@ -231,8 +231,4 @@ document.addEventListener('DOMContentLoaded', function() {
   document.addEventListener('cartUpdated', updateWhatsAppButton);
 });
 
-// 5. CSS yang bisa ditambahkan (optional)
-
-
-
 
