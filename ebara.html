@@ -56,6 +56,8 @@
 
     /* btn cart */
 
+    /* Style dasar tombol WA */
+
 
 
     /* ebara product */
@@ -69,6 +71,16 @@
     }
 
     /* akhir ebara product */
+
+    /* disabled wa */
+
+     .disabled-wa {
+         opacity: 0.6;
+         pointer-events: none;
+      }
+
+
+    /* akhir disabled */
 
     /* shop cart */
      
@@ -104,19 +116,6 @@
       }
       .jumbotron-content {
       max-width: 400px;
-      }
-     
-      #whatsapp-button {
-      position: fixed;
-       bottom: 20px;
-       left: 10%;
-       width: 80%;
-       z-index: 1000;
-       box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  }
-
-      .cartModal .modal-content {
-        padding-bottom: 80px; /* Ruang untuk tombol WA */
       }
       
 
@@ -169,7 +168,7 @@
         <div class="modal-body" id="cart-items"></div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-danger btn-co" onclick="checkout()"><i class="bi bi-whatsapp" ></i> Checkout</button>
+          <button type="button" class="btn btn-danger btn-co" onclick="checkout()" id="whatsapp-button" disabled><i class="bi bi-whatsapp" ></i> Checkout</button>
         </div>
       </div>
     </div>

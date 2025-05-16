@@ -46,6 +46,7 @@ function addToCart(productId, productName, productImage) {
   localStorage.setItem('cart', JSON.stringify(cart));
   updateCartCounter();
   updateWhatsAppButton();
+  dispatchCartUpdatedEvent();
   showToast(`${productName} added to cart`);
 }
 
@@ -134,7 +135,8 @@ function increaseQuantity(productId) {
       localStorage.setItem('cart', JSON.stringify(cart));
       displayCartItems();
       updateCartCounter();
-      updateWhatsAppButton(); // Ditambahkan agar tombol whatsapp update
+      updateWhatsAppButton();
+      dispatchCartUpdatedEvent();
     }
   }, 300);
 }
@@ -153,7 +155,8 @@ function decreaseQuantity(productId) {
       localStorage.setItem('cart', JSON.stringify(cart));
       displayCartItems();
       updateCartCounter();
-      updateWhatsAppButton(); // Ditambahkan agar tombol whatsapp update
+      updateWhatsAppButton();
+      dispatchCartUpdatedEvent();
     }
   }, 300);
 }
@@ -180,7 +183,8 @@ function removeFromCart(productId) {
     localStorage.setItem('cart', JSON.stringify(cart));
     displayCartItems();
     updateCartCounter();
-    updateWhatsAppButton(); 
+    updateWhatsAppButton();
+    dispatchCartUpdatedEvent();
   }
 }
 
@@ -188,42 +192,37 @@ function removeFromCart(productId) {
 // CHECKOUT VIA WHATSAPP
 // =========================
 
-// 1. Fungsi untuk update status tombol
 function updateWhatsAppButton() {
   const cart = JSON.parse(localStorage.getItem('cart')) || {};
   const whatsappButton = document.getElementById('whatsapp-button');
-  
+
   if (whatsappButton) {
-    whatsappButton.disabled = Object.keys(cart).length === 0;
-    
-    // Optional: Ganti style jika disabled
-    if (whatsappButton.disabled) {
-      whatsappButton.style.opacity = "0.6";
-      whatsappButton.style.cursor = "not-allowed";
-    } else {
-      whatsappButton.style.opacity = "1";
-      whatsappButton.style.cursor = "pointer";
-    }
+    const hasItems = Object.values(cart).some(item => item.quantity > 0);
+    whatsappButton.disabled = !hasItems;
+    whatsappButton.classList.toggle('disabled-wa', !hasItems);
   }
 }
 
-// 2. Fungsi checkout utama
 function checkout() {
   const cart = JSON.parse(localStorage.getItem('cart')) || {};
-  
+
   if (Object.keys(cart).length === 0) {
-    showToast('Your cart is empty.');
+    showToast('your cart is empty');
     return;
   }
 
-  let message = "Halo, saya ingin memesan / menanyakan type yg cocok: \n\n";
+  let message = "Halo, saya ingin memesan:\n\n";
   message += Object.entries(cart)
     .map(([id, item]) => `- ${item.name} (Qty: ${item.quantity})`)
     .join('\n');
-  
-  message += "\n\nMohon Bantuannya <i class='bi bi-emoji-smile-fill'></i> " ;
+
+  message += "\n\nMohon konfirmasi ketersediaan barang. Terima kasih!";
 
   window.open(`https://wa.me/6285775230813?text=${encodeURIComponent(message)}`, '_blank');
+}
+
+function dispatchCartUpdatedEvent() {
+  document.dispatchEvent(new Event('cartUpdated'));
 }
 
 // =========================
@@ -234,8 +233,13 @@ window.addEventListener('storage', function(event) {
   if (event.key === 'cart') {
     updateCartCounter();
     updateWhatsAppButton();
-    displayCartItems(); // Jika modal terbuka di halaman ini
+    displayCartItems();
   }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  updateWhatsAppButton();
+  document.addEventListener('cartUpdated', updateWhatsAppButton);
 });
 
 
