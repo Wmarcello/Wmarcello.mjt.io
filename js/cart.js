@@ -45,7 +45,7 @@ function addToCart(productId, productName, productImage) {
 
   localStorage.setItem('cart', JSON.stringify(cart));
   updateCartCounter();
-  updateWhatsAppButton(); // Ditambahkan agar tombol whatsapp update
+  updateWhatsAppButton();
   showToast(`${productName} added to cart`);
 }
 
@@ -221,7 +221,7 @@ function checkout() {
     .map(([id, item]) => `- ${item.name} (Qty: ${item.quantity})`)
     .join('\n');
   
-  message += "\n\nMohon Bantuannya <i class='emoji-smile-fill'></i> " ;
+  message += "\n\nMohon Bantuannya <i class='bi bi-emoji-smile-fill'></i> " ;
 
   window.open(`https://wa.me/6285775230813?text=${encodeURIComponent(message)}`, '_blank');
 }
