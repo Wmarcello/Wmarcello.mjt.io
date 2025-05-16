@@ -1,0 +1,461 @@
+/* root */
+:root{
+  interpolate-size: allow-keywords;
+}
+/* Body */
+
+body{
+  height: 3000px;
+}
+
+/* css untuk notifikasi pembelian */
+
+/* Tambahkan di style.css */
+.cart-item {
+.spinner-border.spinner-border-sm-custom {
+  width: 1rem;
+  height: 1rem;
+  border-width: 0.15em;
+}
+}
+/* Akhir css untuk notifikasi pembelian */
+
+
+/* Navbar */
+.navbar {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.navbar-nav .choice {
+  padding: 10px;
+  font-weight: bold;
+}
+
+.navbar .choice:hover {
+  padding-bottom: 5px;
+  transform: translateY(2px);
+}
+
+.navbar .choice:hover::after {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 2px;
+  background-color: red;
+  border-radius: 25%;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.navbar .belanja{
+  position: absolute;
+  top: 15px;
+  right: -8px;
+  line-height: 10px;
+  padding: 5px;
+  color: white;
+  font-weight: bold;
+  border-radius: 25px;
+
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+}
+/* Akhir Navbar */
+
+/* Jumbotron */
+.jumbotron {
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.jumbotron .wordportfolio {
+  padding-top: 150px;
+  text-align: center;
+  font-family: "Anton", sans-serif;
+  font-weight: 400;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+
+
+/* css wrapped 2024 interpolate-size */
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 4.5rem; /* Changed from 4.5rem */
+  padding: 1rem;
+}
+
+.nav a {
+  display: grid;
+  grid-template-columns: 1.5rem auto;
+  gap: 1rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+  transition: all 0.35s ease;
+  align-items: center;
+  background: #eaeaea;
+  border-radius: 0.5rem;
+  color: #5f6368;
+  text-decoration: none;
+  white-space: nowrap;
+  width: 2.5rem;
+  overflow: hidden;
+}
+
+.nav a:hover {
+  color: #333;
+  width: 8rem;
+}
+
+.nav a i {
+  align-items: center;
+  justify-content: center;
+}
+
+.text {
+  padding-right: 0.75rem;
+  font-family: "Anton", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+
+}
+/* Akhir css wrapped 2024 interpolate-size */
+
+/* Akhir Jumbotron */
+
+/* About Us */
+
+.about ul li i {
+  margin-right: .5rem;
+  font-weight: bold;
+  color: red;
+}
+
+.about{
+  padding: 50px;
+}
+
+.about h2{
+  border-bottom: 2px solid red;
+  padding-bottom: 5px;
+  width: 200px;
+  margin: auto;
+  font-family: "Anton", sans-serif;
+  font-weight: 400;
+}
+/* LOGO TILT JS */
+
+.about .logo{
+  width: 250px;
+  top: 15px;
+  bottom: 10px;
+  margin: auto;
+  padding: 15px;
+  padding-bottom: 50px;
+}
+
+.logo{
+  border: 4px solid red;
+  border-radius: 10px;
+  box-shadow: 10px 5px 5px black;
+  background-color: #f2f2f2;
+  transform-style: preserve-3d;
+  padding: 15px;
+  transition: 0.5s;
+  position: relative;
+}
+.logo-name{
+  text-align: center;
+  color: black;
+  top: -10px;
+  left: -6px;
+  width: 100%;
+  opacity: 0;
+  transition: 0.5s;
+  padding: 10px;
+  font-family: "Anton", sans-serif;
+  font-weight: 400;
+}
+
+
+.logo:hover .logo-name{
+  opacity: 1;
+  transform: translate3d(0, 0, 50px);
+}
+
+
+.logo-img{
+  max-width: 200px;
+  margin: auto;
+  top: 20px;
+  transform: translate3d(0, 0, 100px);
+}
+
+/* Akhir LOGO TILT JS */
+
+.about .logo-img2{
+  width: 70px;
+  margin-top: 60px;
+  border: 2px solid red;
+  border-radius: 50px;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+  float: left;
+}
+
+.about p{
+  margin-top: 20px;
+}
+
+.about .p1{
+  font-weight: bold;
+  margin-top: 60px;
+  margin-right: 20px;
+  text-align: center;
+}
+
+
+/* Akhir About Us */
+
+/* product */
+.product h2{
+  padding-top: 100px;
+  border-bottom: 2px solid red;
+  width: 200px;
+  margin: auto;
+  font-family: "Anton", sans-serif;
+  font-weight: 400;
+}
+.product .card a{
+  text-decoration: none;
+ 
+}
+
+/* Brand Logos */
+/* Brand Logos with Parallax */
+.brand-logos-parallax {
+  position: relative;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+  padding: 50px 0;
+  background-size: cover;
+
+}
+
+.parallax-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.brand-logos-parallax h4{
+  color: black;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: 2px 2px 2px rgba(255, 255, 255, 0.4);
+}
+
+.brand-logos-parallax .container {
+  z-index: 2;
+}
+
+.brand-logos-parallax .brand-logo {
+  opacity: 0.8;
+  transition: all 0.3s ease;
+  max-height: 50px;
+  width: auto;
+}
+
+.brand-logos-parallax .brand-logo:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+/* akhir brand logo */
+
+.product .card .btn{
+  padding: 5px;
+  margin: auto;
+  border-radius: 25px;
+  background-color: red;
+  color: white;
+  font-weight: bold;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+  float: right;
+}
+
+.product .card .btn:hover{
+  background-color: black;
+  color: white;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+}
+/* Akhir Product */
+
+/* Contact */
+
+.contact h2{
+  padding-top: 50px;
+  border-bottom: 2px solid red;
+  width: 200px;
+  margin: auto;
+  font-family: "Anton", sans-serif;
+  font-weight: 400;
+}
+
+   .contact iframe{
+    border: 2px solid red;
+   }
+
+
+   .contact .btn{
+    padding: 5px;
+    margin: auto;
+    background-color: red;
+    color: white;
+    font-weight: bold;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+    text-align: center;
+   }
+
+   .contact .card-body{
+    width: 300px;
+    margin: auto;
+   }
+
+   .contact .card-body h5{
+     font-weight: bold;
+     text-align: center;
+     padding: 20px;
+     border-bottom: 2px solid red;
+
+   }
+
+   .gmaps {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+  
+  .gmaps iframe {
+    width: 100%;
+    height: 300px;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .gmaps .card-header , .card-footer, .text-body-secondary{
+    background-color: red;
+    color: white;
+  }
+
+  .gmaps .card-footer img{
+    width: 50px;
+  }
+
+
+  /* field sizing textarea */
+    .contact textarea {
+      min-block-size: 3.5rlh;
+      min-inline-size: 10ch;
+      max-inline-size: 50ch;
+      field-sizing: content;
+    }
+
+    
+/* Akhir Contact */
+
+
+/* Footer */
+
+/* Akhir Footer */
+
+/* Animasi Product view */
+.modal-body ul li i{
+  color: gold;
+}
+
+.modal-body ul li .btn{
+  background-color: #ff0000;
+  color: white;
+  font-size: 10px;
+  width: 40px;
+  padding: 5px;
+  text-align: center;
+  border-radius: 25px;
+  margin-left: 10px;
+
+}
+
+.modal-body ul li .btn:hover{
+  background-color: #eaeaea;
+  color: #ff0000;
+}
+/* Akhir Animasi Product View */
+
+
+
+
+/* Media Query  */
+
+/* Media Open in mobile */
+@media (min-width: 300px){
+  .jumbotron .wordportfolio{
+    padding-top: 200px;
+  }
+
+  .product .card{
+    margin: auto;
+
+  }
+  .navbar .icons-cart i{
+    margin-left: 120px;
+  }
+  
+}
+  /* Media Open in tablet */
+  @media (min-width: 600px){
+    .jumbotron .wordportfolio{
+      padding-top: 400px;
+    }
+        
+  }
+  
+  /* Media Open in desktop */
+  @media(min-width: 1200px){
+    .jumbotron .wordportfolio{
+      padding-top: 150px;
+    }
+
+    .about .paragraf{
+      padding-top: 5px;
+    }
+
+    .product .card{
+      margin: auto;
+  
+    }
+    .contact form{
+      border-left: 3px solid red;
+      padding: 15px;
+     }
+  
+  }
+
+
+
+/* Akhir Media Query */

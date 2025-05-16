@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ebara Product Details</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <style>
+    /* Custom Jumbotron Style */
+    .jumbotron-ebara {
+      background-image: url('./img/blue.png');
+      font-family: 'Anton', sans-serif;
+      background-size: cover;
+      background-position: center;
+      height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      position: relative;
+    }
+    
+    .jumbotron-ebara::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+    
+    .jumbotron-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      padding: 2rem;
+    }
+    
+    .btn-back {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      z-index: 2;
+    }
+
+    /* ebara product */
+
+    .ebara-product .card{
+      box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4);
+    }
+
+    .ebara-product .card .btn{
+      box-shadow: 2px 2px 2px rgba(7, 23, 206, 0.5);
+    }
+
+    /* akhir ebara product */
+
+    /* shop cart */
+     
+    
+    /* akhir shop cart */
+
+    /* custome modal width and height */
+
+
+    /* akhir custome modal */
+
+    /* footer */
+
+    footer{
+      bottom: 0;
+      width: 100%;
+      background-image: url('./img/blue.png');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 10px;
+      line-height: 160px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    /* akhir footer */
+  </style>
+</head>
+<body>
+
+  <!-- Jumbotron dengan Tombol Back -->
+  <section class="jumbotron-ebara">
+    <a href="index.html" class="btn btn-outline-light btn-back">
+      <i class="bi bi-arrow-left"></i> Back to Home
+    </a>
+    
+    <div class="jumbotron-content">
+      <h1 class="display-4">EBARA </h1>
+      <p class="lead">High-performance centrifugal pumps for industrial applications</p>
+      <hr class="my-4">
+      <p>Reliable and efficient pumping solutions since 1912</p>
+    </div>
+  </section>
+
+  <!-- akhir jumbotron -->
+
+  <!-- shopping cart -->
+
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <button type="button" class="btn btn-primary mt-5" id="shop-cart" data-bs-toggle="modal" data-bs-target="#cartModal">
+          <i class="bi bi-cart"></i> <span id="cart-count"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- akhir shopping cart -->
+
+  <!-- shopping cart modal-->
+
+  <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="cartModalLabel">Shopping Cart</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="cart-items"></div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-danger" onclick="checkout()"><i class="bi bi-whatsapp" ></i> Checkout</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- akhir shopping cart -->
+
+  <!-- ebara product -->
+  <section class="ebara-product mt-5">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-6 col-sm-12 col-lg-4">
+        <div class="card" style="width: 18rem;">
+          <img src="./img/FSA.png" class="card-img-top" alt="Ebara Product 1">
+          <div class="card-body">
+            <h5 class="card-title">Ebara FSA Pump</h5>
+            <p class="card-text"> Ebara FSA Series centrifugal pumps deliver unmatched efficiency and reliability for industrial fluid handling. </p>
+            <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ebarafsaModal">View</a>
+          </div>
+        </div>
+        </div>
+
+        <div class="col-md-6 col-sm-12 col-lg-4">
+          <div class="card" style="width: 18rem;">
+            <img src="./img/GS.png" class="card-img-top" alt="Ebara Product 2">
+            <div class="card-body">
+              <h5 class="card-title">Ebara GS Pump</h5>
+              <p class="card-text">  Ebara GS Series represents the pinnacle of end-suction centrifugal pump technology, combining robust construction with energy-efficient performance. </p>
+              <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ebaragsModal">View</a>
+            </div>
+          </div>
+          </div>
+
+      </div>
+
+      <div class="row justify-content-center mt-4">
+        <div class="col-md-6 col-sm-12 col-lg-4">
+        <div class="card" style="width: 18rem;">
+          <img src="./img/EVMSG.png" class="card-img-top" alt="Ebara Product 1">
+          <div class="card-body">
+            <h5 class="card-title">Ebara EVMSG Pump</h5>
+            <p class="card-text"> High-efficiency vertical multistage pumps for space-constrained installations. </p>
+            <a href="#" class="btn btn-primary">View</a>
+          </div>
+        </div>
+        </div>
+
+        <div class="col-md-6 col-sm-12 col-lg-4">
+          <div class="card" style="width: 18rem;">
+            <img src="./img/CDX.png" class="card-img-top" alt="Ebara Product 2">
+            <div class="card-body">
+              <h5 class="card-title">Ebara CDX Pump</h5>
+              <p class="card-text"> Horizontal multistage pump for high-pressure industrial applications. </p>
+              <a href="#" class="btn btn-primary">View</a>
+            </div>
+          </div>
+          </div>
+
+      </div>
+
+      <div class="row justify-content-center mt-4">
+       
+        <div class="col-md-6 col-sm-12 col-lg-4">
+          <div class="card" style="width: 18rem;">
+            <img src="./img/DLDFDVS.png" class="card-img-top" alt="Ebara Product 2">
+            <div class="card-body">
+              <h5 class="card-title">Ebara DL,DS,DVS Pump</h5>
+              <p class="card-text"> EBARA DL, DS, and DVS are vertical in-line pump series that are efficient, space-saving, and suitable for clean water applications.</p>
+              <a href="#" class="btn btn-primary">View</a>
+            </div>
+          </div>
+          </div>
+
+          <div class="col-md-6 col-sm-12 col-lg-4 mb-5">
+            <div class="card" style="width: 18rem;">
+              <img src="./img/3D.png" class="card-img-top" alt="Ebara Product 2">
+              <div class="card-body">
+                <h5 class="card-title">Ebara Centrifugal 3D Pump</h5>
+                <p class="card-text"> EBARA 3D is a horizontal end-suction pump series that is efficient, space-saving, and suitable for clean water applications. </p>
+                <a href="#" class="btn btn-primary">View</a>
+              </div>
+            </div>
+            </div>
+
+      </div>
+
+    </div>
+  </section>
+<!-- akhir product -->
+
+<!-- modal product -->
+
+<div class="modal fade" id="ebarafsaModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" style="max-width: 900px; max-height: 500px;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"> Ebara FSA Pump </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-6">
+            <img src="./img/FSA.png" class="img-fluid" alt="Centrifugal Pump">
+          </div>
+          <div class="col-md-6">
+            <h4> FSA, FSH , FSKA, FSGA</h4>
+            <p></p>
+            <ul>
+              
+            </ul>
+            <h5></h5>
+
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" onclick="addToCart('ebara-fsa', 'Ebara FSA Pump',)"
+>
+        <a href="./ebara.html" class="btn btn-primary"></a><i class="bi bi-cart-dash-fill"></i> Shop </a>
+        </button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <a 
+          href="https://wa.me/6285775230813?text=Halo%20MJT,%20saya%20tertarik%20dengan%20produk%20centrifugal%20pump" 
+          class="btn btn-success"
+          data-bs-dismiss="modal"
+          onclick="window.open(this.href, '_blank'); return false;"
+        >
+          <i class="bi bi-whatsapp"></i> Contact Us
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- akhid  modal -->
+
+<!-- modal product -->
+
+<div class="modal fade" id="ebaragsModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"> Ebara GS Pump </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-6">
+            <img src="" class="img-fluid" alt="Centrifugal Pump">
+          </div>
+          <div class="col-md-6">
+            <h4> GS </h4>
+            <p></p>
+            <ul>
+              
+            </ul>
+            <h5></h5>
+
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" onclick="addToCart('ebara-gs', 'Ebara GS Pump',)"
+>
+        <a href="./ebara.html" class="btn btn-primary"></a><i class="bi bi-cart-dash-fill"></i> Shop </a>
+        </button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <a 
+          href="https://wa.me/6285775230813?text=Halo%20MJT,%20saya%20tertarik%20dengan%20produk%20centrifugal%20pump" 
+          class="btn btn-success"
+          data-bs-dismiss="modal"
+          onclick="window.open(this.href, '_blank'); return false;"
+        >
+          <i class="bi bi-whatsapp"></i> Contact Us
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- akhid  modal -->
+
+<!-- FOOTER -->
+
+<footer class="bg-dark text-light py-3 mt-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-10 col- md-8 justify-content-center">
+        <p>&copy; 2025 PT. MEGA JAYA TEKINDO. <img src="./img/mjt.png" alt="MJT" class="img-fluid-brand-logo" style="max-height: 30px;"></p>
+      </div>
+      <div class="col-2 col-md-2 col-lg-2 mb-4 text-center">
+        <img src="./img/ebara.png" alt="Ebara" class="img-fluid brand-logo" style="max-height: 70px;">
+      </div>
+     
+    </div>
+  </div>
+</footer>
+
+<!-- Akhir Footer -->
+
+<!-- cart .js -->
+
+<script src="./js/cart.js"></script>
+
+<!-- Akhir cart .js -->
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- Script untuk tombol kembali -->
+  <script>
+    // Optional: Enhance back button functionality
+    document.querySelector('.btn-back').addEventListener('click', function(e) {
+      e.preventDefault();
+      history.back(); // Menggunakan history browser
+    });
+  </script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Tangani klik produk
+    document.querySelectorAll('.product-link').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const productId = this.getAttribute('data-product');
+        
+        // Sembunyikan semua section
+        document.querySelectorAll('section').forEach(section => {
+          section.style.display = 'none';
+        });
+        
+        // Tampilkan detail produk
+        document.getElementById('product-detail').style.display = 'block';
+        
+        // Load konten produk (bisa dari AJAX atau template)
+        loadProductDetail(productId);
+      });
+    });
+    
+    // Tombol back
+    document.getElementById('back-to-products').addEventListener('click', function() {
+      document.getElementById('product-detail').style.display = 'none';
+      document.querySelectorAll('section').forEach(section => {
+        section.style.display = 'block';
+      });
+    });
+  });
+  
+  function loadProductDetail(productId) {
+    // Ini bisa diisi dengan AJAX atau template
+    const detailContainer = document.getElementById('product-detail-content');
+    detailContainer.innerHTML = `
+      <h3>Product ${productId} Details</h3>
+      <p>Detailed information about product ${productId}</p>
+    `;
+  }
+  
+  </script>
+  
+  <!-- akhir js demo product -->
+  
+</body>
+</html>
