@@ -24,17 +24,10 @@ body{
 
 /* Tambahkan CSS ini */
 #whatsapp-button {
-  padding: 12px 20px;
-  font-size: 16px;
-  border-radius: 8px;
-  width: 100%; /* Lebar penuh */
-  margin-top: 15px;
+  position: relative;
+  z-index: 1050;
 }
 
-/* Untuk tampilan mobile */
-@media (max-width: 768px) {
-  
-}
 
 /* Akhir Whatsapp button */
 

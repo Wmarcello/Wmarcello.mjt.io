@@ -1,5 +1,5 @@
 // =========================
-// INISIALISASI CART (Improved)
+// INISIALISASI CART
 // =========================
 
 function initCart() {
@@ -9,21 +9,27 @@ function initCart() {
   }
 }
 
-// =========================
-// CART EVENT SYSTEM (New)
-// =========================
-
-function dispatchCartUpdate() {
-  const event = new Event('cartUpdated');
-  document.dispatchEvent(event);
-}
-
-// =========================
-// MENAMBAH ITEM KE CART (Improved)
-// =========================
-
-function addToCart(productId, productName) {
+document.addEventListener('DOMContentLoaded', function() {
   initCart();
+  updateCartCounter();
+  updateWhatsAppButton();
+
+  const cartModal = document.getElementById('cartModal');
+  if (cartModal) {
+    cartModal.addEventListener('show.bs.modal', function() {
+      displayCartItems();
+      updateWhatsAppButton();
+    });
+  }
+});
+
+// =========================
+// MENAMBAH ITEM KE CART
+// =========================
+
+function addToCart(productId, productName, productImage) {
+  initCart();
+
   let cart = JSON.parse(localStorage.getItem('cart'));
 
   if (cart[productId]) {
@@ -31,6 +37,7 @@ function addToCart(productId, productName) {
   } else {
     cart[productId] = {
       name: productName,
+      image: productImage,
       quantity: 1,
       addedAt: new Date().toISOString()
     };
@@ -38,12 +45,12 @@ function addToCart(productId, productName) {
 
   localStorage.setItem('cart', JSON.stringify(cart));
   updateCartCounter();
+  updateWhatsAppButton(); // Ditambahkan agar tombol whatsapp update
   showToast(`${productName} added to cart`);
-  dispatchCartUpdate(); // Trigger cart update event
 }
 
 // =========================
-// UPDATE JUMLAH DI NAVBAR (Improved)
+// UPDATE JUMLAH DI NAVBAR
 // =========================
 
 function updateCartCounter() {
@@ -52,12 +59,39 @@ function updateCartCounter() {
 
   document.querySelectorAll('#cart-count').forEach(element => {
     element.textContent = totalItems;
-    element.style.display = totalItems > 0 ? 'inline-block' : 'none';
   });
 }
 
 // =========================
-// TAMPILKAN ITEM DI MODAL (Improved)
+// TAMPILKAN TOAST NOTIFIKASI
+// =========================
+
+function showToast(message) {
+  const toastContainer = document.getElementById('toast-container') || createToastContainer();
+
+  const toast = document.createElement('div');
+  toast.className = 'toast show align-items-center text-white bg-success mb-2';
+  toast.innerHTML = `
+    <div class="d-flex">
+      <div class="toast-body">${message}</div>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+    </div>
+  `;
+
+  toastContainer.appendChild(toast);
+  setTimeout(() => toast.remove(), 3000);
+}
+
+function createToastContainer() {
+  const container = document.createElement('div');
+  container.id = 'toast-container';
+  container.className = 'position-fixed top-0 end-0 p-3';
+  document.body.appendChild(container);
+  return container;
+}
+
+// =========================
+// TAMPILKAN ITEM DI MODAL
 // =========================
 
 function displayCartItems() {
@@ -66,19 +100,16 @@ function displayCartItems() {
 
   if (!container) return;
 
-  // Filter out items with quantity <= 0
-  const validItems = Object.entries(cart).filter(([id, item]) => item.quantity > 0);
-
-  container.innerHTML = validItems.length === 0 
+  container.innerHTML = Object.keys(cart).length === 0 
     ? '<p class="text-center">Your cart is empty</p>'
-    : validItems.map(([id, item]) => `
+    : Object.entries(cart).map(([id, item]) => `
         <div class="cart-item d-flex justify-content-between align-items-center mb-3 p-2 border-bottom">
-              <h6 class="mb-1">${item.name}</h6>
-              <div class="d-flex align-items-center">
-                <button class="btn btn-sm btn-outline-secondary me-2" onclick="decreaseQuantity('${id}')">−</button>
-                <span class="quantity-display">${item.quantity}</span>
-                <button class="btn btn-sm btn-outline-secondary ms-2" onclick="increaseQuantity('${id}')">+</button>
-              </div>
+          <div>
+            <h6 class="mb-1">${item.name}</h6>
+            <div class="d-flex align-items-center">
+              <button class="btn btn-sm btn-outline-secondary me-2" onclick="decreaseQuantity('${id}')">−</button>
+              <span>${item.quantity}</span>
+              <button class="btn btn-sm btn-outline-secondary ms-2" onclick="increaseQuantity('${id}')">+</button>
             </div>
           </div>
           <button class="btn btn-sm btn-outline-danger" onclick="removeFromCart('${id}')">
@@ -86,12 +117,10 @@ function displayCartItems() {
           </button>
         </div>
       `).join('');
-
-  updateWhatsAppButton();
 }
 
 // =========================
-// TAMBAH/KURANG QUANTITY (Improved)
+// TAMBAH/KURANG QUANTITY
 // =========================
 
 function increaseQuantity(productId) {
@@ -105,7 +134,7 @@ function increaseQuantity(productId) {
       localStorage.setItem('cart', JSON.stringify(cart));
       displayCartItems();
       updateCartCounter();
-      dispatchCartUpdate();
+      updateWhatsAppButton(); // Ditambahkan agar tombol whatsapp update
     }
   }, 300);
 }
@@ -124,95 +153,90 @@ function decreaseQuantity(productId) {
       localStorage.setItem('cart', JSON.stringify(cart));
       displayCartItems();
       updateCartCounter();
-      dispatchCartUpdate();
+      updateWhatsAppButton(); // Ditambahkan agar tombol whatsapp update
     }
   }, 300);
 }
 
+function showButtonLoading(button) {
+  button.disabled = true;
+  const originalContent = button.innerHTML;
+  button.innerHTML = `<span class="spinner-border spinner-border-sm spinner-border-sm-custom" role="status" aria-hidden="true"></span>`;
+
+  setTimeout(() => {
+    button.innerHTML = originalContent;
+    button.disabled = false;
+  }, 300);
+}
+
 // =========================
-// HAPUS ITEM (Improved)
+// HAPUS ITEM
 // =========================
 
 function removeFromCart(productId) {
   let cart = JSON.parse(localStorage.getItem('cart')) || {};
   if (cart[productId]) {
-    const itemName = cart[productId].name;
     delete cart[productId];
     localStorage.setItem('cart', JSON.stringify(cart));
     displayCartItems();
     updateCartCounter();
-    showToast(`${itemName} removed from cart`);
-    dispatchCartUpdate();
+    updateWhatsAppButton(); 
   }
 }
 
 // =========================
-// CHECKOUT VIA WHATSAPP (Improved)
+// CHECKOUT VIA WHATSAPP
 // =========================
 
+// 1. Fungsi untuk update status tombol
 function updateWhatsAppButton() {
   const cart = JSON.parse(localStorage.getItem('cart')) || {};
   const whatsappButton = document.getElementById('whatsapp-button');
   
   if (whatsappButton) {
-    const hasItems = Object.values(cart).some(item => item.quantity > 0);
-    whatsappButton.disabled = !hasItems;
+    whatsappButton.disabled = Object.keys(cart).length === 0;
     
-    // Mobile optimization
-    whatsappButton.classList.toggle('whatsapp-active', hasItems);
-    whatsappButton.style.pointerEvents = hasItems ? 'auto' : 'none';
+    // Optional: Ganti style jika disabled
+    if (whatsappButton.disabled) {
+      whatsappButton.style.opacity = "0.6";
+      whatsappButton.style.cursor = "not-allowed";
+    } else {
+      whatsappButton.style.opacity = "1";
+      whatsappButton.style.cursor = "pointer";
+    }
   }
 }
 
-function calculateTotal(cart) {
-  // Implement your total calculation logic here if needed
-  const itemCount = Object.values(cart).reduce((total, item) => total + item.quantity, 0);
-  return `Total: ${itemCount} item(s)`;
-}
-
+// 2. Fungsi checkout utama
 function checkout() {
   const cart = JSON.parse(localStorage.getItem('cart')) || {};
-  const validItems = Object.entries(cart).filter(([id, item]) => item.quantity > 0);
   
-  if (validItems.length === 0) {
-    showToast('Keranjang masih kosong');
+  if (Object.keys(cart).length === 0) {
+    showToast('Your cart is empty.');
     return;
   }
 
-  let message = "Halo, saya ingin memesan:\n\n";
-  message += validItems
+  let message = "Halo, saya ingin memesan / menanyakan type yg cocok: \n\n";
+  message += Object.entries(cart)
     .map(([id, item]) => `- ${item.name} (Qty: ${item.quantity})`)
     .join('\n');
   
-  message += `\n\n${calculateTotal(cart)}\nMohon konfirmasi ketersediaan barang. Terima kasih!`;
+  message += "\n\nMohon Bantuannya <i class='emoji-smile-fill'></i> " ;
 
   window.open(`https://wa.me/6285775230813?text=${encodeURIComponent(message)}`, '_blank');
 }
 
 // =========================
-// INITIALIZATION (Improved)
+// SYNC ANTAR HALAMAN
 // =========================
 
-document.addEventListener('DOMContentLoaded', function() {
-  initCart();
-  updateCartCounter();
-  updateWhatsAppButton();
-
-  const cartModal = document.getElementById('cartModal');
-  if (cartModal) {
-    cartModal.addEventListener('show.bs.modal', function() {
-      displayCartItems();
-    });
-  }
-
-  // Listen for cart updates
-  document.addEventListener('cartUpdated', function() {
+window.addEventListener('storage', function(event) {
+  if (event.key === 'cart') {
     updateCartCounter();
     updateWhatsAppButton();
-    if (cartModal && cartModal.classList.contains('show')) {
-      displayCartItems();
-    }
-  });
+    displayCartItems(); // Jika modal terbuka di halaman ini
+  }
 });
+
 
 

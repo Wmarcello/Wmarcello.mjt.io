@@ -874,11 +874,23 @@ function checkoutWhatsApp() {
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-  const counter = document.getElementById('cart-count');
-  const stored = localStorage.getItem('cartCount');
-  counter.textContent = stored || 0;
+  function updateCounter() {
+    const counter = document.getElementById('cart-count');
+    const cart = JSON.parse(localStorage.getItem('cart')) || {};
+    const totalItems = Object.values(cart).reduce((total, item) => total + item.quantity, 0);
+    counter.textContent = totalItems;
+  }
+
+  updateCounter();
+
+  window.addEventListener('storage', function(event) {
+    if (event.key === 'cart') {
+      updateCounter();
+    }
+  });
 });
 </script>
+
 
 <!-- akhir produk -->
     
