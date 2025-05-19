@@ -8,6 +8,12 @@ body{
   height: 3000px;
 }
 
+/* fix a col product */
+
+
+
+/* akhir fix a col product */
+
 /* css untuk notifikasi pembelian */
 
 /* Tambahkan di style.css */
@@ -448,10 +454,30 @@ nav ul {
   
 }
   /* Media Open in tablet */
-  @media (min-width: 600px){
+  @media (min-width: 768px){
     .jumbotron .wordportfolio{
       padding-top: 400px;
     }
+
+    .product-card img {
+  height: 180px;
+  object-fit: cover;
+}
+
+.product-card .card-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card .btn {
+  margin-top: auto;
+}
+
+.navbar .icons-cart i{
+    margin-left: 430px;
+  }
+
+
         
   }
   
@@ -473,6 +499,7 @@ nav ul {
       border-left: 3px solid red;
       padding: 15px;
      }
+
   
   }
 

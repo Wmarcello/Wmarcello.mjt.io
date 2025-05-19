@@ -211,7 +211,7 @@ function checkout() {
     return;
   }
 
-  let message = "Halo, saya ingin memesan:\n\n";
+  let message = "Halo, saya ingin memesan/menanyakan produk berikut ini:\n\n";
   message += Object.entries(cart)
     .map(([id, item]) => `- ${item.name} (Qty: ${item.quantity})`)
     .join('\n');

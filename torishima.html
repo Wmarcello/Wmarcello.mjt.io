@@ -155,6 +155,40 @@ html, body {
     </div>
   </section>
 
+        <!-- shopping cart -->
+
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <button type="button" class="btn btn-success mt-5 btn-lg" id="shop-cart" data-bs-toggle="modal" data-bs-target="#cartModal">
+          <i class="bi bi-cart"></i> <span id="cart-count"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- akhir shopping cart -->
+
+  <!-- shopping cart modal-->
+
+  <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg"style="max-width: 800px;">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="cartModalLabel">Shopping Cart</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="cart-items"></div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary btn-lg" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-danger btn-co btn-lg" onclick="checkout()" id="whatsapp-button" disabled><i class="bi bi-whatsapp" ></i> Checkout</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- akhir shopping cart -->
+
   <!-- Torishima product -->
   <section class="torishima-product mt-5">
     <div class="container">
@@ -165,7 +199,7 @@ html, body {
           <div class="card-body">
             <h5 class="card-title">Torishima CEN Pump</h5>
             <p class="card-text"> Ebara FSA Series centrifugal pumps deliver unmatched efficiency and reliability for industrial fluid handling. </p>
-            <a href="#" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#torishimaCENModal">View</a>
+            <a href="#" class="btn btn-success btn-lg" data-bs-toggle="modal" data-bs-target="#torishimaCENModal">View</a>
           </div>
         </div>
         </div>
@@ -179,7 +213,7 @@ html, body {
 <!-- Modal Product Torishima -->
 
 <div class="modal fade" id="torishimaCENModal" tabindex="-1" aria-labelledby="torishimaCENModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
+  <div class="modal-dialog modal-dialog-centered modal-lg" style="max-width: 900px;">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="torishimaCENModalLabel">Torishima CEN Pump Series</h5>
@@ -275,10 +309,13 @@ html, body {
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button class="btn btn-dark btn-lg" onclick="addToCart('torishima-cen', 'Torishima CEN Pump',)">
+          <i class="bi bi-cart-dash-fill"></i> Shop </a>
+        </button>
+        <button type="button" class="btn btn-secondary btn-lg" data-bs-dismiss="modal">Close</button>
         <a 
           href="https://wa.me/6285775230813?text=Halo%20MJT,%20saya%20tertarik%20dengan%20produk%20centrifugal%20pump" 
-          class="btn btn-success"
+          class="btn btn-success btn-lg"
           data-bs-dismiss="modal"
           onclick="window.open(this.href, '_blank'); return false;"
         >
@@ -321,6 +358,55 @@ html, body {
       history.back(); // Menggunakan history browser
     });
   </script>
+
+  <!-- cart .js -->
+
+<script src="./js/cart.js"></script>
+
+<!-- Akhir cart .js -->
+
+<!--  cart js produk cen -->
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Tangani klik produk
+    document.querySelectorAll('.product-link').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const productId = this.getAttribute('data-product');
+        
+        // Sembunyikan semua section
+        document.querySelectorAll('section').forEach(section => {
+          section.style.display = 'none';
+        });
+        
+        // Tampilkan detail produk
+        document.getElementById('product-detail').style.display = 'block';
+        
+        // Load konten produk (bisa dari AJAX atau template)
+        loadProductDetail(productId);
+      });
+    });
+    
+    // Tombol back
+    document.getElementById('back-to-products').addEventListener('click', function() {
+      document.getElementById('product-detail').style.display = 'none';
+      document.querySelectorAll('section').forEach(section => {
+        section.style.display = 'block';
+      });
+    });
+  });
+  
+  function loadProductDetail(productId) {
+    // Ini bisa diisi dengan AJAX atau template
+    const detailContainer = document.getElementById('product-detail-content');
+    detailContainer.innerHTML = `
+      <h3>Product ${productId} Details</h3>
+      <p>Detailed information about product ${productId}</p>
+    `;
+  }
+  
+  </script>
+
   
 </div>
 </body>
