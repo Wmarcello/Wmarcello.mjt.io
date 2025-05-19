@@ -89,6 +89,44 @@
 
     /* custome modal width and height */
 
+    /* image modal carousel ---  */
+
+    .modal-image-carousel .carousel-item img {
+      max-height: 350px;
+      object-fit: contain;
+      margin: 0 auto;
+      filter: blur(0px);
+    }
+
+   /* warna carousel next prev */
+   
+   .modal-image-carousel .carousel-control-prev-icon,
+   .modal-image-carousel .carousel-control-next-icon {
+     background-color: #000;
+     border-radius: 25%;
+     width: 30px;
+     height: 30px;
+     font-size: 20px;
+     color: #000;
+   }
+    /* Specification table */
+    .spec-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    .spec-table th, .spec-table td {
+      border: 1px solid #dee2e6;
+      padding: 8px;
+      text-align: left;
+    }
+    
+    .spec-table th {
+      background-color: #f8f9fa;
+    }
+
+    /* akhir modal torishima product */
+
 
     /* akhir custome modal */
 
@@ -211,7 +249,7 @@
           <div class="card-body">
             <h5 class="card-title">Ebara EVMSG Pump</h5>
             <p class="card-text"> High-efficiency vertical multistage pumps for space-constrained installations. </p>
-            <a href="#" class="btn btn-primary btn-lg">View</a>
+            <a href="#" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#ebaraevmsgModal">View</a>
           </div>
         </div>
         </div>
@@ -259,39 +297,379 @@
   </section>
 <!-- akhir product -->
 
-<!-- modal product -->
+<!-- modal product FSA -->
 
-<div class="modal fade" id="ebarafsaModal" tabindex="-1" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-lg" style="max-width: 900px; max-height: 500px;">
+<div class="modal fade" id="ebarafsaModal" tabindex="-1" aria-labelledby="ebarafsaModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" style="max-width: 800px;">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title"> Ebara FSA Pump </h5>
+        <h5 class="modal-title" id="ebarafsaModalLabel">Ebara FSA Pump Series</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <div class="row">
-          <div class="col-md-6">
-            <img src="./img/FSA.png" class="img-fluid" alt="Centrifugal Pump">
-          </div>
-          <div class="col-md-6">
-            <h4> FSA, FSH , FSKA, FSGA</h4>
-            <p></p>
-            <ul>
-              
-            </ul>
-            <h5></h5>
 
+        <!-- Image Carousel -->
+        <div id="ebaraFSACarousel" class="carousel slide modal-image-carousel mb-2" data-bs-ride="carousel" data-bs-interval="3000">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="./img/FSA.png" class="d-block w-100" alt="Ebara FSA Pump Front View">
+            </div>
+            <div class="carousel-item">
+              <img src="./img/fsaModel/fsa_model.png" class="d-block w-100" alt="Ebara FSA Pump Performance Curve">
+            </div>
+            <div class="carousel-item">
+              <img src="./img/fsaModel/fsa_model2.png" class="d-block w-100" alt="Ebara FSA Pump Diagram">
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#ebaraFSACarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#ebaraFSACarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+
+        <!-- Product Description -->
+        <div class="mb-4">
+          <h4>Product Description</h4>
+          <p>The Ebara FSA Series centrifugal pumps are built for efficient fluid transfer and high reliability in industrial and commercial applications.</p>
+          <ul>
+            <li>Close-coupled single-stage pump</li>
+            <li>Cast iron casing with stainless steel shaft</li>
+            <li>Back pull-out design for easy maintenance</li>
+            <li>High hydraulic efficiency with closed impeller</li>
+            <li>Compliant with ISO 2858 standards</li>
+          </ul>
+        </div>
+
+        <!-- Specifications Table -->
+        <div class="mb-4">
+          <h4>Technical Specifications</h4>
+          <table class="spec-table">
+            <tr>
+              <th>Model</th>
+              <td>FSA</td>
+            </tr>
+            <tr>
+              <th>Capacity</th>
+              <td>Up to 1500 m³/h</td>
+            </tr>
+            <tr>
+              <th>Head</th>
+              <td>Up to 150m</td>
+            </tr>
+            <tr>
+              <th>Power</th>
+              <td>Up to 225 kW</td>
+            </tr>
+            <tr>
+              <th>Max. Pressure</th>
+              <td>16 bar</td>
+            </tr>
+            <tr>
+              <th>Temperature Range</th>
+              <td>-10°C to +120°C</td>
+            </tr>
+          </table>
+        </div>
+
+        <!-- Applications -->
+        <div>
+          <h4>Typical Applications</h4>
+          <div class="row">
+            <div class="col-md-6">
+              <ul>
+                <li>Water supply systems</li>
+                <li>Industrial circulation systems</li>
+                <li>Cooling towers</li>
+              </ul>
+            </div>
+            <div class="col-md-6">
+              <ul>
+                <li>Fire-fighting systems</li>
+                <li>Irrigation and agriculture</li>
+                <li>Booster systems</li>
+              </ul>
+            </div>
           </div>
         </div>
+
+        <!-- Download Button -->
+        <h5 class="mt-4">Download PDF Spec Sheet:</h5>
+        <a href="./pdf/FSA.pdf" target="_blank" class="btn btn-outline-danger mt-2">
+          <i class="bi bi-file-earmark-pdf-fill"></i> Download PDF
+        </a>
+
       </div>
       <div class="modal-footer">
-        <button class="btn btn-dark btn-lg" onclick="addToCart('ebara-fsa', 'Ebara FSA Pump',)"
->
-       <i class="bi bi-cart-dash-fill"></i> Shop </a>
+        <button class="btn btn-dark btn-lg" onclick="addToCart('ebara-fsa', 'Ebara FSA Pump')">
+          <i class="bi bi-cart-plus-fill"></i> Shop
         </button>
         <button type="button" class="btn btn-secondary btn-lg" data-bs-dismiss="modal">Close</button>
         <a 
-          href="https://wa.me/6285775230813?text=Halo%20MJT,%20saya%20tertarik%20dengan%20produk%20centrifugal%20pump" 
+          href="https://wa.me/6285775230813?text=Halo%20MJT,%20saya%20tertarik%20dengan%20produk%20Ebara%20FSA%20Pump" 
+          class="btn btn-success btn-lg"
+          data-bs-dismiss="modal"
+          onclick="window.open(this.href, '_blank'); return false;"
+        >
+          <i class="bi bi-whatsapp"></i> Contact Us
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Akhir modal product FSA -->
+
+
+
+<!-- modal product  GS -->
+
+<div class="modal fade" id="ebaragsModal" tabindex="-1" aria-labelledby="ebaragsModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" style="max-width: 900px;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ebaragsModalLabel">Ebara GS Pump Series</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <!-- Image Carousel -->
+        <div id="ebaraGSCarousel" class="carousel slide modal-image-carousel mb-4" data-bs-ride="carousel" data-bs-interval="3000">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="./img/gs.png" class="d-block w-100" alt="Ebara GS Pump Front View">
+            </div>
+            <div class="carousel-item">
+              <img src="./img/gsModel/gs_model2.png" class="d-block w-100" alt="Ebara GS Pump">
+            </div>
+            <div class="carousel-item">
+              <img src="./img/gsModel/gs_model.png" class="d-block w-100" alt="Ebara GS Pump Performance Curve">
+            </div>
+            <div class="carousel-item">
+              <img src="./img/gsModel/gs_model3.png" class="d-block w-100" alt="Ebara GS Pump ">
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#ebaraGSCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#ebaraGSCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+
+        <!-- Product Description -->
+        <div class="mb-4">
+          <h4>Product Description</h4>
+          <p>The Ebara GS Series is a versatile, end-suction centrifugal pump ideal for clean water applications across industrial and commercial use cases. It offers exceptional hydraulic performance and easy maintenance.</p>
+          <ul>
+            <li>End-suction volute casing pump</li>
+            <li>Back pull-out design</li>
+            <li>Stainless steel shaft and replaceable wear ring</li>
+            <li>Complies with ISO 2858 and EN 733</li>
+            <li>Compact and service-friendly</li>
+          </ul>
+        </div>
+
+        <!-- Specifications Table -->
+        <div class="mb-4">
+          <h4>Technical Specifications</h4>
+          <table class="spec-table">
+            <tr>
+              <th>Model</th>
+              <td>GS</td>
+            </tr>
+            <tr>
+              <th>Capacity</th>
+              <td>Up to 1500 m³/h</td>
+            </tr>
+            <tr>
+              <th>Head</th>
+              <td>Up to 160m</td>
+            </tr>
+            <tr>
+              <th>Power</th>
+              <td>Up to 355 kW</td>
+            </tr>
+            <tr>
+              <th>Max. Pressure</th>
+              <td>16 bar</td>
+            </tr>
+            <tr>
+              <th>Temperature Range</th>
+              <td>-10°C to +140°C</td>
+            </tr>
+          </table>
+        </div>
+
+        <!-- Applications -->
+        <div>
+          <h4>Typical Applications</h4>
+          <div class="row">
+            <div class="col-md-6">
+              <ul>
+                <li>HVAC systems</li>
+                <li>Water supply and distribution</li>
+                <li>Irrigation systems</li>
+              </ul>
+            </div>
+            <div class="col-md-6">
+              <ul>
+                <li>Fire-fighting installations</li>
+                <li>Cooling and heating systems</li>
+                <li>General industrial processes</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Download Button -->
+        <h5 class="mt-4">Download PDF Spec Sheet:</h5>
+        <a href="./pdf/GS_catalog.pdf" target="_blank" class="btn btn-outline-danger mt-2">
+          <i class="bi bi-file-earmark-pdf-fill"></i> Download PDF
+        </a>
+
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-dark btn-lg" onclick="addToCart('ebara-gs', 'Ebara GS Pump')">
+          <i class="bi bi-cart-plus-fill"></i> Shop
+        </button>
+        <button type="button" class="btn btn-secondary btn-lg" data-bs-dismiss="modal">Close</button>
+        <a 
+          href="https://wa.me/6285775230813?text=Halo%20MJT,%20saya%20tertarik%20dengan%20produk%20Ebara%20GS%20Pump" 
+          class="btn btn-success btn-lg"
+          data-bs-dismiss="modal"
+          onclick="window.open(this.href, '_blank'); return false;"
+        >
+          <i class="bi bi-whatsapp"></i> Contact Us
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Akhir Modal Product GS -->
+
+<!-- Modal Product EVMSG -->
+
+<div class="modal fade" id="ebaraevmsgModal" tabindex="-1" aria-labelledby="ebaraevmsgModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" style="max-width: 900px;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ebaraevmsgModalLabel">Ebara EVMSG Pump Series</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <!-- Image Carousel -->
+        <div id="ebaraEVMSGCarousel" class="carousel slide modal-image-carousel mb-4" data-bs-ride="carousel" data-bs-interval="3000">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="./img/evmsg.png" class="d-block w-100" alt="Ebara EVMSG Pump Front View">
+            </div>
+            <div class="carousel-item">
+              <img src="./img/evmsgModel/EVMS_model.png" class="d-block w-100" alt="Ebara EVMSG Picture">
+            </div>
+            <div class="carousel-item">
+              <img src="./img/evmsgModel/EVMS_model3.png" class="d-block w-100" alt="Ebara EVMSG picture 2">
+            </div>
+            <div class="carousel-item">
+              <img src="./img/evmsgModel/EVMS_model2.png" class="d-block w-100" alt="Ebara Evmsg performance-curve">
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#ebaraEVMSGCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#ebaraEVMSGCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+
+        <!-- Product Description -->
+        <div class="mb-4">
+          <h4>Product Description</h4>
+          <p>The Ebara EVMSG Series is a high-efficiency vertical multistage centrifugal pump, engineered for clean water applications where compact size and high performance are critical.</p>
+          <ul>
+            <li>Vertical, close-coupled multistage pump</li>
+            <li>All wetted parts in stainless steel AISI 304 or AISI 316</li>
+            <li>Ideal for boosting systems and pressure units</li>
+            <li>High efficiency and low noise operation</li>
+            <li>Available in various stages for different head requirements</li>
+          </ul>
+        </div>
+
+        <!-- Specifications Table -->
+        <div class="mb-4">
+          <h4>Technical Specifications</h4>
+          <table class="spec-table">
+            <tr>
+              <th>Model</th>
+              <td>EVMSG</td>
+            </tr>
+            <tr>
+              <th>Capacity</th>
+              <td>Up to 20 m³/h</td>
+            </tr>
+            <tr>
+              <th>Head</th>
+              <td>Up to 250m</td>
+            </tr>
+            <tr>
+              <th>Power</th>
+              <td>0.37 kW to 5.5 kW</td>
+            </tr>
+            <tr>
+              <th>Max. Pressure</th>
+              <td>25 bar</td>
+            </tr>
+            <tr>
+              <th>Temperature Range</th>
+              <td>-10°C to +90°C</td>
+            </tr>
+          </table>
+        </div>
+
+        <!-- Applications -->
+        <div>
+          <h4>Typical Applications</h4>
+          <div class="row">
+            <div class="col-md-6">
+              <ul>
+                <li>Booster sets</li>
+                <li>RO systems</li>
+                <li>Pressure boosting</li>
+              </ul>
+            </div>
+            <div class="col-md-6">
+              <ul>
+                <li>Water treatment plants</li>
+                <li>Cooling towers</li>
+                <li>Industrial washing</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Download PDF -->
+        <h5 class="mt-4">Download PDF Spec Sheet:</h5>
+        <a href="./pdf/EVMSG_VERTICAL.pdf" target="_blank" class="btn btn-outline-danger mt-2">
+          <i class="bi bi-file-earmark-pdf-fill"></i> Download PDF
+        </a>
+
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-dark btn-lg" onclick="addToCart('ebara-evmsg', 'Ebara EVMSG Pump')">
+          <i class="bi bi-cart-plus-fill"></i> Shop
+        </button>
+        <button type="button" class="btn btn-secondary btn-lg" data-bs-dismiss="modal">Close</button>
+        <a 
+          href="https://wa.me/6285775230813?text=Halo%20MJT,%20saya%20tertarik%20dengan%20produk%20Ebara%20EVMSG%20Pump" 
           class="btn btn-success btn-lg"
           data-bs-dismiss="modal"
           onclick="window.open(this.href, '_blank'); return false;"
@@ -304,53 +682,8 @@
 </div>
 
 
-<!-- akhid  modal -->
 
-<!-- modal product -->
-
-<div class="modal fade" id="ebaragsModal" tabindex="-1" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title"> Ebara GS Pump </h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div class="row">
-          <div class="col-md-6">
-            <img src="" class="img-fluid" alt="Centrifugal Pump">
-          </div>
-          <div class="col-md-6">
-            <h4> GS </h4>
-            <p></p>
-            <ul>
-              
-            </ul>
-            <h5></h5>
-
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button class="btn btn-dark btn-lg" onclick="addToCart('ebara-gs', 'Ebara GS Pump',)">
-          <i class="bi bi-cart-dash-fill"></i> Shop </a>
-        </button>
-        <button type="button" class="btn btn-secondary btn-lg" data-bs-dismiss="modal">Close</button>
-        <a 
-          href="https://wa.me/6285775230813?text=Halo%20MJT,%20saya%20tertarik%20dengan%20produk%20centrifugal%20pump" 
-          class="btn btn-success btn-lg"
-          data-bs-dismiss="modal"
-          onclick="window.open(this.href, '_blank'); return false;"
-        >
-          <i class="bi bi-whatsapp"></i> Contact Us
-        </a>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<!-- akhid  modal -->
+<!-- Akhir Modal Product EVMSG -->
 
 <!-- FOOTER -->
 
@@ -362,7 +695,7 @@
       </div>
       <div class="col-2 col-md-2 col-lg-2 mb-4 text-center">
         <img src="./img/ebara.png" alt="Ebara" class="img-fluid brand-logo" style="max-height: 70px;">
-      </div>
+      </div>f
      
     </div>
   </div>
