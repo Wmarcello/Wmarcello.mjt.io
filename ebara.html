@@ -82,7 +82,44 @@
   .cart-item button {
     font-size: 0.9rem;
   }
+
+  /* tampilan carousel ebara size perbesar */
+
+  .modal-content {
+    font-size: 1.05rem;
+    padding: 1rem;
+  }
+
+  .modal-title {
+    font-size: 1.3rem;
+  }
+
+  .carousel-item img {
+    max-height: 280px; /* buat lebih tinggi di mobile */
+    object-fit: contain;
+  }
+
+  .spec-table td,
+  .spec-table th,
+  .modal-body ul li {
+    font-size: 1rem;
+  }
+
+  .modal-footer .btn {
+    font-size: 1rem;
+    padding: 0.6rem 1.2rem;
+  }
+
+  .carousel-item img {
+  max-height: 300px; /* default 250 */
+  width: 100%;
+  object-fit: contain;
 }
+
+}
+
+
+  /* --- akhir PERBESAR FONT */
 
 
 
@@ -329,7 +366,7 @@
 <!-- modal product FSA -->
 
 <div class="modal fade" id="ebarafsaModal" tabindex="-1" aria-labelledby="ebarafsaModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-lg" style="max-width: 800px; width: 95%;">
+  <div class="modal-dialog modal-dialog-centered modal-fullscreen-sm-down" style="max-width: 800px; width: 95%;">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="ebarafsaModalLabel">Ebara FSA Pump Series</h5>
