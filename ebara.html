@@ -11,6 +11,21 @@
 
     /* cart table max width */
 
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+
+    .page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.page-content {
+  flex: 1;
+}
+
   
 
 
@@ -61,40 +76,7 @@
     /* --- PERBESAR FONT */
 
     @media (max-width: 576px) {
-  #cartModal .modal-content {
-    font-size: 1.1rem;
-    padding: 1rem;
-  }
-
-  #cartModal .modal-footer .btn {
-    font-size: 1rem;
-    padding: 0.75rem 1.5rem;
-  }
-
-  #cartModal .modal-title {
-    font-size: 1.25rem;
-  }
-
-  .cart-item h6 {
-    font-size: 1rem;
-  }
-
-  .cart-item button {
-    font-size: 0.9rem;
-  }
-
-  /* tampilan carousel ebara size perbesar */
-  .spec-table td,
-  .spec-table th,
-  .modal-body ul li {
-    font-size: 1rem;
-  }
-
-  .carousel-item img {
-  max-height: 300px; /* default 250 */
-  width: 100%;
-  object-fit: contain;
-}
+     
 
 }
 
