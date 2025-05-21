@@ -2,6 +2,8 @@
 // INISIALISASI CART
 // =========================
 
+<meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+
 function initCart() {
   if (!localStorage.getItem('cart')) {
     localStorage.setItem('cart', JSON.stringify({}));
@@ -241,7 +243,5 @@ window.addEventListener('storage', function(event) {
     displayCartItems();
   }
 });
-
-
 
 
