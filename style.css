@@ -8,6 +8,12 @@ body{
   height: 3000px;
 }
 
+
+/* agar tidak delay */
+button, a {
+  touch-action: manipulation;
+}
+
 /* fix a col product */
 
 
@@ -430,11 +436,7 @@ nav ul {
   .jumbotron .wordportfolio{
     padding-top: 200px;
   }
-
-  .product .card{
-    margin: auto;
-
-  }
+  
   .navbar .icons-cart i{
     margin-left: 120px;
   }
@@ -450,6 +452,12 @@ nav ul {
   
   .cartModal .modal-content {
     padding-bottom: 80px; /* Ruang untuk tombol WA */
+  }
+
+  /* untuk logo mjt fix bug */
+    .logo-mjt .text-mjt {
+    opacity: 1 !important;
+    transform: translateX(0) !important;
   }
   
 }

@@ -177,7 +177,7 @@
               <h5 class="logo-name"> MEGA JAYA TEKINDO </h5>
               <img src="./img/mjt.png" alt="MJT" class="logo-img">
           </div>
-            <img src="./img/water-pump.png" alt="Water-pump" class="logo-img2 img-thumbnail color: var(--bs-body-bg)">
+            <img loading="lazy" decoding="async" src="./img/water-pump.png" alt="Water-pump" class="logo-img2 img-thumbnail color: var(--bs-body-bg)">
              <p class="p1"> "Innovating Industrial Reliability Through Engineering Excellence"</p>
               <p> Since 2015, PT Mega Jaya Tekindo has been a trusted provider of high-performance pump systems, custom cooling solutions, and fire protection systems. We deliver end-to-end industrial engineering services tailored to meet the evolving needs of commercial and industrial facilities across Indonesia. </p>
           </div>
@@ -209,7 +209,7 @@
     <!-- Product Us -->
 
     <section class="product" id="product">
-      <div class="container">
+      <div class="container justify-content-center">
         <div class="row justify-content-center">
           <div class="col text-center mb-5">
            <h2> Product </h2>
@@ -279,7 +279,7 @@
 
         <div class="row justify-content-center">
           <div class="col-md-4 col-sm-12 m-4 justify-content-center" style="width: 18rem;">
-            <div class="card" style="width: 18rem;">
+            <div class="card h-100 d-flex flex-column" style="width: 18rem;">
               <img src="./img/pump2.png" class="card-img-top" alt="...">
               <div class="card-body">
                 <h5 class="card-title">Centrifugal Pump</h5>
@@ -291,7 +291,7 @@
             </div>
 
           <div class="col-md-4 col-sm-12 m-4 justify-content-center" style="width: 18rem;">
-            <div class="card" style="width: 18rem;">
+            <div class="card h-100 d-flex flex-column" style="width: 18rem;">
               <img src="./img/pump1.png" class="card-img-top" alt="...">
               <div class="card-body">
                 <h5 class="card-title"> Electric Motor Pump</h5>
@@ -302,7 +302,7 @@
           </div>
 
           <div class="col-md-4 col-sm-12 m-4 justify-content-center" style="width: 18rem;">
-            <div class="card" style="width: 18rem;">
+            <div class="card h-100 d-flex flex-column" style="width: 18rem;">
               <img src="./img/pump3.png" class="card-img-top" alt="...">
               <div class="card-body">
                 <h5 class="card-title"> Vertical Pump</h5>
@@ -311,12 +311,12 @@
               </div>
             </div>
           </div>
+          </div>
 
-        </div>
 
         <div class="row justify-content-center">
-          <div class="col-md-5 col-sm-12 m-4 justify-content-center">
-            <div class="card" style="width: 18rem;">
+          <div class="col-md-4 col-sm-12 m-4 justify-content-center" style="width: 18rem;">
+            <div class="card h-100 d-flex flex-column" style="width: 18rem;">
               <img src="./img/pump1.png" class="card-img-top" alt="...">
               <div class="card-body">
                 <h5 class="card-title"> Centrifugal Pump Couple Motor Electric</h5>
@@ -326,8 +326,8 @@
             </div>
           </div>
 
-          <div class="col-md-5 col-sm-12 m-4 justify-content-center">
-            <div class="card" style="width: 18rem;">
+          <div class="col-md-4 col-sm-12 m-4 justify-content-center" style="width: 18rem;">
+            <div class="card h-100 d-flex flex-column" style="width: 18rem;">
               <img src="./img/pump2.png" class="card-img-top" alt="...">
               <div class="card-body">
                 <h5 class="card-title"> Centrifugal Pump Couple Motor Diesel</h5>
@@ -336,7 +336,7 @@
               </div>
             </div>
           </div>
-
+          
         </div>
       </div>
     </section>
@@ -893,6 +893,22 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 <!-- akhir produk -->
+
+<!--  unutuk Logo Mjt fix agar bisa cursor langsung keluar nama -->
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const logo = document.querySelector('.logo-mjt');
+    logo.addEventListener('click', function () {
+      const text = logo.querySelector('.text-mjt');
+      text.classList.add('show-on-mobile');
+    });
+  });
+</script>
+
+
+
+<!-- akhir logo MJT -->
     
   </body>
 </html>

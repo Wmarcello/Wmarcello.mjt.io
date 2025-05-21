@@ -9,6 +9,10 @@ function initCart() {
   }
 }
 
+function generateCartKey(productId, head = '', capacity = '') {
+  return `${productId}_${head}_${capacity}`;
+}
+
 document.addEventListener('DOMContentLoaded', function() {
   initCart();
   updateCartCounter();
@@ -27,18 +31,20 @@ document.addEventListener('DOMContentLoaded', function() {
 // MENAMBAH ITEM KE CART
 // =========================
 
-function addToCart(productId, productName, productImage) {
+function addToCart(productId, productName, head = '', capacity = '') {
   initCart();
 
+  const uniqueId = generateCartKey(productId, head, capacity);
   let cart = JSON.parse(localStorage.getItem('cart'));
 
-  if (cart[productId]) {
-    cart[productId].quantity += 1;
+  if (cart[uniqueId]) {
+    cart[uniqueId].quantity += 1;
   } else {
-    cart[productId] = {
+    cart[uniqueId] = {
       name: productName,
-      image: productImage,
       quantity: 1,
+      head: head,
+      capacity: capacity,
       addedAt: new Date().toISOString()
     };
   }
@@ -46,8 +52,14 @@ function addToCart(productId, productName, productImage) {
   localStorage.setItem('cart', JSON.stringify(cart));
   updateCartCounter();
   updateWhatsAppButton();
-  dispatchCartUpdatedEvent();
   showToast(`${productName} added to cart`);
+
+  // Reset input
+  const inputIds = ['fsa-head', 'fsa-capacity', 'gs-head', 'gs-capacity', 'evmsg-head', 'evmsg-capacity'];
+  inputIds.forEach(id => {
+    const input = document.getElementById(id);
+    if (input) input.value = '';
+  });
 }
 
 // =========================
@@ -110,6 +122,7 @@ function displayCartItems() {
             <div class="d-flex align-items-center">
               <button class="btn btn-sm btn-outline-secondary me-2" onclick="decreaseQuantity('${id}')">−</button>
               <span>${item.quantity}</span>
+              <small class="d-block text-muted ms-2">H: ${item.head || '-'} (m) | C: ${item.capacity || '-'} (m3/h)</small>
               <button class="btn btn-sm btn-outline-secondary ms-2" onclick="increaseQuantity('${id}')">+</button>
             </div>
           </div>
@@ -136,7 +149,6 @@ function increaseQuantity(productId) {
       displayCartItems();
       updateCartCounter();
       updateWhatsAppButton();
-      dispatchCartUpdatedEvent();
     }
   }, 300);
 }
@@ -156,7 +168,6 @@ function decreaseQuantity(productId) {
       displayCartItems();
       updateCartCounter();
       updateWhatsAppButton();
-      dispatchCartUpdatedEvent();
     }
   }, 300);
 }
@@ -184,7 +195,6 @@ function removeFromCart(productId) {
     displayCartItems();
     updateCartCounter();
     updateWhatsAppButton();
-    dispatchCartUpdatedEvent();
   }
 }
 
@@ -207,22 +217,17 @@ function checkout() {
   const cart = JSON.parse(localStorage.getItem('cart')) || {};
 
   if (Object.keys(cart).length === 0) {
-    showToast('your cart is empty');
+    showToast('Keranjang masih kosong');
     return;
   }
 
-  let message = "Halo, saya ingin memesan/menanyakan produk berikut ini:\n\n";
+  let message = "Halo, saya ingin memesan:\n\n";
   message += Object.entries(cart)
-    .map(([id, item]) => `- ${item.name} (Qty: ${item.quantity})`)
+    .map(([id, item]) => `- ${item.name} (Qty: ${item.quantity}) H: ${item.head || '-'} '(m)' | C: ${item.capacity || '-'} '(m3/h)'`)
     .join('\n');
 
   message += "\n\nMohon konfirmasi ketersediaan barang. Terima kasih!";
-
-  window.open(`https://wa.me/6285775230813?text=${encodeURIComponent(message)}`, '_blank');
-}
-
-function dispatchCartUpdatedEvent() {
-  document.dispatchEvent(new Event('cartUpdated'));
+  window.open(`https://wa.me/6285775230813?text=${encodeURIComponent(message)}`, '_blank',150);
 }
 
 // =========================
@@ -237,10 +242,6 @@ window.addEventListener('storage', function(event) {
   }
 });
 
-document.addEventListener('DOMContentLoaded', function() {
-  updateWhatsAppButton();
-  document.addEventListener('cartUpdated', updateWhatsAppButton);
-});
 
 
 

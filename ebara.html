@@ -154,7 +154,18 @@
       background-color: #f8f9fa;
     }
 
-    /* akhir modal torishima product */
+    
+
+    /* agar tidak delay */
+    button, a {
+     touch-action: manipulation;
+   }
+
+
+
+
+
+    /* akhir */
 
 
     /* akhir custome modal */
@@ -425,6 +436,19 @@
           </div>
         </div>
 
+        <!-- cap and head (M) -->
+
+         <div class="mt-4">
+          <h4 class="mb-2" style="font-weight: bold;"> Input Head and Capacity </h4>
+          <label for="fsa-head" class="form-label">Input Head (m):</label>
+          <input type="number" id="fsa-head" class="form-control mb-2" placeholder="input Head (M)">
+
+          <label for="fsa-capacity" class="form-label">Input Capacity (m³/h):</label>
+          <input type="number" id="fsa-capacity" class="form-control" placeholder="input Capacity (m³/h)">
+        </div>
+
+        <!-- akhir cap and head -->
+
         <!-- Download Button -->
          <div class="pdf-file justify-content-center text-center">
         <h5 class="mt-4">Download PDF Spec Sheet:</h5>
@@ -435,7 +459,9 @@
 
       </div>
       <div class="modal-footer">
-        <button class="btn btn-dark btn-lg" onclick="addToCart('ebara-fsa', 'Ebara FSA Pump')">
+        <button class="btn btn-dark btn-lg" onclick="addToCart('ebara-fsa', 'Ebara FSA Pump',
+        document.getElementById('fsa-head').value,
+        document.getElementById('fsa-capacity').value)">
           <i class="bi bi-cart-plus-fill"></i> Shop
         </button>
         <button type="button" class="btn btn-secondary btn-lg" data-bs-dismiss="modal">Close</button>
@@ -558,6 +584,19 @@
           </div>
         </div>
 
+        <!-- cap and head (M) -->
+
+         <div class="mt-4">
+          <h4 class="mb-2" style="font-weight: bold;"> Input Head and Capacity </h4>
+          <label for="gs-head" class="form-label">Input Head (m):</label>
+          <input type="number" id="gs-head" class="form-control mb-2" placeholder="input Head (M)">
+
+          <label for="gs-capacity" class="form-label">Input Capacity (m³/h):</label>
+          <input type="number" id="gs-capacity" class="form-control" placeholder="input Capacity (m³/h)">
+        </div>
+
+        <!-- akhir cap and head -->
+
         <!-- Download Button -->
          <div class="pdf-file justify-content-center text-center">
         <h5 class="mt-4">Download PDF Spec Sheet:</h5>
@@ -568,7 +607,9 @@
 
       </div>
       <div class="modal-footer">
-        <button class="btn btn-dark btn-lg" onclick="addToCart('ebara-gs', 'Ebara GS Pump')">
+        <button class="btn btn-dark btn-lg" onclick="addToCart('ebara-gs', 'Ebara GS Pump',
+          document.getElementById('gs-head').value,
+          document.getElementById('gs-capacity').value)">
           <i class="bi bi-cart-plus-fill"></i> Shop
         </button>
         <button type="button" class="btn btn-secondary btn-lg" data-bs-dismiss="modal">Close</button>
@@ -689,6 +730,19 @@
           </div>
         </div>
 
+        <!-- cap and head (M) -->
+
+         <div class="mt-4">
+          <h4 class="mb-2" style="font-weight: bold;"> Input Head and Capacity </h4>
+          <label for="evmsg-head" class="form-label">Input Head (m):</label>
+          <input type="number" id="evmsg-head" class="form-control mb-2" placeholder="input Head (M)">
+
+          <label for="evmsg-capacity" class="form-label">Input Capacity (m³/h):</label>
+          <input type="number" id="evmsg-capacity" class="form-control" placeholder="input Capacity (m³/h)">
+        </div>
+
+        <!-- akhir cap and head -->
+
         <!-- Download PDF -->
          <div class="pdf-file justify-content-center text-center">
         <h5 class="mt-4">Download PDF Spec Sheet:</h5>
@@ -699,7 +753,9 @@
 
       </div>
       <div class="modal-footer">
-        <button class="btn btn-dark btn-lg" onclick="addToCart('ebara-evmsg', 'Ebara EVMSG Pump')">
+        <button class="btn btn-dark btn-lg" onclick="addToCart('ebara-evmsg', 'Ebara EVMSG Pump',
+          document.getElementById('evmsg-head').value,
+          document.getElementById('evmsg-capacity').value)">
           <i class="bi bi-cart-plus-fill"></i> Shop
         </button>
         <button type="button" class="btn btn-secondary btn-lg" data-bs-dismiss="modal">Close</button>
