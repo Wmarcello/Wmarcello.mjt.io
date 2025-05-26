@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
-  <title>Ebara Product Details</title>
+  <title>Ebara Product</title>
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Bootstrap Icons -->
@@ -334,7 +334,7 @@ body, html {
             <div class="card-body">
               <h5 class="card-title">Ebara CDX Pump</h5>
               <p class="card-text"> Horizontal multistage pump for high-pressure industrial applications. </p>
-              <a href="#" class="btn btn-primary btn-lg">View</a>
+              <a href="#" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#ebaracdxModal">View</a>
             </div>
           </div>
           </div>
@@ -389,10 +389,10 @@ body, html {
               <img src="./img/FSA.png" class="d-block w-100" alt="Ebara FSA Pump Front View">
             </div>
             <div class="carousel-item">
-              <img src="./img/fsacart/modalfsa1.png" class="d-block w-100" alt="Ebara FSA Pump Performance Curve">
+              <img src="./img/fsacart/modelfsa1.png" class="d-block w-100" alt="Ebara FSA Pump Performance Curve">
             </div>
             <div class="carousel-item">
-              <img src="./img/fsacart/modalfsa2.png" class="d-block w-100" alt="Ebara FSA Pump Diagram">
+              <img src="./img/fsacart/modelfsa2.png" class="d-block w-100" alt="Ebara FSA Pump Diagram">
             </div>
           </div>
         </div>
@@ -526,13 +526,13 @@ body, html {
               <img src ="./img/gspump.png" class="d-block w-100" alt="Ebara GS Pump Front View">
             </div>
             <div class="carousel-item">
-              <img src="./img/gscart/modalgs2.png" class="d-block w-100" alt="Ebara GS Pump">
+              <img src="./img/gscart/modelgs1.png" class="d-block w-100" alt="Ebara GS Pump">
             </div>
             <div class="carousel-item">
-              <img src="./img/gscart/modalgs3.png" class="d-block w-100" alt="Ebara GS Pump Performance Curve">
+              <img src="./img/gscart/modelgs2.png" class="d-block w-100" alt="Ebara GS Pump Performance Curve">
             </div>
             <div class="carousel-item">
-              <img src="./img/gscart/modalgs4.png" class="d-block w-100" alt="Ebara GS Pump ">
+              <img src="./img/gscart/modelgs3.png" class="d-block w-100" alt="Ebara GS Pump ">
             </div>
           </div>
         </div>
@@ -664,13 +664,13 @@ body, html {
               <img src="./img/evmsg.png" class="d-block w-100" alt="Ebara EVMSG Pump Front View">
             </div>
             <div class="carousel-item">
-              <img src="./img/evmsgcart/modalevmsg1.png" class="d-block w-100" alt="Ebara EVMSG Picture">
+              <img src="./img/evmsgcart/modelevmsg1.png" class="d-block w-100" alt="Ebara EVMSG Picture">
             </div>
             <div class="carousel-item">
-              <img src="./img/evmsgcart/modalevmsg2.png" class="d-block w-100" alt="Ebara EVMSG picture 2">
+              <img src="./img/evmsgcart/modelevmsg2.png" class="d-block w-100" alt="Ebara EVMSG picture 2">
             </div>
             <div class="carousel-item">
-              <img src="./img/evmsgcart/modalevmsg3.png" class="d-block w-100" alt="Ebara Evmsg performance-curve">
+              <img src="./img/evmsgcart/modelevmsg3.png" class="d-block w-100" alt="Ebara Evmsg performance-curve">
             </div>
           </div>
         </div>
@@ -785,6 +785,142 @@ body, html {
 
 
 <!-- Akhir Modal Product EVMSG -->
+
+<!-- Product Description CDX PUMP -->
+
+<div class="modal fade" id="ebaracdxModal" tabindex="-1" aria-labelledby="ebaracdxModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-fullscreen-sm-down" style="max-width: 800px; width: 100%;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ebaracdxModalLabel">Ebara CDX Pump Series</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <!-- Image Carousel -->
+        <div id="ebaraCDXCarousel" class="carousel slide modal-image-carousel mb-4" data-bs-ride="carousel" data-bs-interval="3200">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="./img/cdx.png" class="d-block w-100" alt="Ebara CDX Pump Front View">
+            </div>
+            <div class="carousel-item">
+              <img src="./img/cdxcart/cdxproduct1.png" class="d-block w-100" alt="Ebara CDX Picture">
+            </div>
+            <div class="carousel-item">
+              <img src="./img/cdxcart/cdxproduct4.png" class="d-block w-100" alt="Ebara CDX Picture 2">
+            </div>
+            <div class="carousel-item">
+              <img src="./img/cdxcart/cdxproduct3.png" class="d-block w-100" alt="Ebara CDX performance curve">
+            </div>
+          </div>
+        </div>
+
+        <!-- Product Description -->
+        <div class="mb-4">
+          <h4 class="product-description">Product Description</h4>
+          <p>The Ebara CDX Series is a horizontal centrifugal pump made of stainless steel, suitable for a wide range of clean water and light chemical applications.</p>
+          <ul>
+            <li>Stainless steel AISI 304 construction</li>
+            <li>Compact and robust design</li>
+            <li>Suitable for light chemical and industrial applications</li>
+            <li>Low noise and high efficiency</li>
+            <li>Available with different impeller sizes</li>
+          </ul>
+        </div>
+
+        <!-- Specifications Table -->
+        <div class="mb-4">
+          <h4>Technical Specifications</h4>
+          <table class="spec-table">
+            <tr>
+              <th>Model</th>
+              <td>CDX</td>
+            </tr>
+            <tr>
+              <th>Capacity</th>
+              <td>Up to 15 m³/h</td>
+            </tr>
+            <tr>
+              <th>Head</th>
+              <td>Up to 45m</td>
+            </tr>
+            <tr>
+              <th>Power</th>
+              <td>0.37 kW to 2.2 kW</td>
+            </tr>
+            <tr>
+              <th>Max. Pressure</th>
+              <td>8 bar</td>
+            </tr>
+            <tr>
+              <th>Temperature Range</th>
+              <td>-10°C to +60°C</td>
+            </tr>
+          </table>
+        </div>
+
+        <!-- Applications -->
+        <div>
+          <h4>Typical Applications</h4>
+          <div class="row">
+            <div class="col-md-6">
+              <ul>
+                <li>Water supply systems</li>
+                <li>Air conditioning systems</li>
+                <li>Cooling circuits</li>
+              </ul>
+            </div>
+            <div class="col-md-6">
+              <ul>
+                <li>Light chemical transfer</li>
+                <li>Industrial washing</li>
+                <li>Boiler feed</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Input Head and Capacity -->
+        <div class="mt-4">
+          <h4 class="mb-2" style="font-weight: bold;"> Input Head and Capacity </h4>
+          <label for="cdx-head" class="form-label">Input Head (m):</label>
+          <input type="number" id="cdx-head" class="form-control mb-2" placeholder="input Head (M)">
+
+          <label for="cdx-capacity" class="form-label">Input Capacity (m³/h):</label>
+          <input type="number" id="cdx-capacity" class="form-control" placeholder="input Capacity (m³/h)">
+        </div>
+
+        <!-- Download PDF -->
+        <div class="pdf-file justify-content-center text-center">
+          <h5 class="mt-4">Download PDF Spec Sheet:</h5>
+          <a href="./pdf/CDX_catalog.pdf" target="_blank" class="btn btn-outline-danger mt-2 justify-content-center text-center">
+            <i class="bi bi-file-earmark-pdf-fill"></i> Download PDF
+          </a>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-dark btn-lg" onclick="addToCart('ebara-cdx', 'Ebara CDX Pump',
+          document.getElementById('cdx-head').value,
+          document.getElementById('cdx-capacity').value)">
+          <i class="bi bi-cart-plus-fill"></i> Shop
+        </button>
+        <button type="button" class="btn btn-secondary btn-lg" data-bs-dismiss="modal">Close</button>
+        <a 
+          href="https://wa.me/6285775230813?text=Halo%20MJT,%20saya%20tertarik%20dengan%20produk%20Ebara%20CDX%20Pump" 
+          class="btn btn-success btn-lg"
+          data-bs-dismiss="modal"
+          onclick="window.open(this.href, '_blank'); return false;"
+        >
+          <i class="bi bi-whatsapp"></i> Contact Us
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Akhir product description CDX PUMP -->
 
 <!-- FOOTER -->
 

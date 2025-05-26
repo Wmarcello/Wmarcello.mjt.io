@@ -54,7 +54,7 @@ function addToCart(productId, productName, head = '', capacity = '') {
   showToast(`${productName} added to cart`);
 
   // Reset input
-  const inputIds = ['fsa-head', 'fsa-capacity', 'gs-head', 'gs-capacity', 'evmsg-head', 'evmsg-capacity'];
+  const inputIds = ['fsa-head', 'fsa-capacity', 'gs-head', 'gs-capacity', 'evmsg-head', 'evmsg-capacity','cdx-head','cdx-capacity'];
   inputIds.forEach(id => {
     const input = document.getElementById(id);
     if (input) input.value = '';
