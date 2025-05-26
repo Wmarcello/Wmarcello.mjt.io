@@ -107,6 +107,8 @@ function createToastContainer() {
 // TAMPILKAN ITEM DI MODAL
 // =========================
 
+// tester function
+
 function displayCartItems() {
   const cart = JSON.parse(localStorage.getItem('cart')) || {};
   const container = document.getElementById('cart-items');
