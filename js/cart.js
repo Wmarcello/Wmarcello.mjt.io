@@ -8,8 +8,8 @@ function initCart() {
   }
 }
 
-function generateCartKey(productId, head = '', capacity = '') {
-  return `${productId}_${head}_${capacity}`;
+function generateCartKey(productId, head = '', capacity = '', pole = '') {
+  return `${productId}_${head}_${capacity}_${pole}`;
 }
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -30,10 +30,10 @@ document.addEventListener('DOMContentLoaded', function() {
 // MENAMBAH ITEM KE CART
 // =========================
 
-function addToCart(productId, productName, head = '', capacity = '') {
+function addToCart(productId, productName, head = '', capacity = '', pole = '') {
   initCart();
 
-  const uniqueId = generateCartKey(productId, head, capacity);
+  const uniqueId = generateCartKey(productId, head, capacity , pole);
   let cart = JSON.parse(localStorage.getItem('cart'));
 
   if (cart[uniqueId]) {
@@ -44,7 +44,8 @@ function addToCart(productId, productName, head = '', capacity = '') {
       quantity: 1,
       head: head,
       capacity: capacity,
-      addedAt: new Date().toISOString()
+      addedAt: new Date().toISOString(),
+      pole: pole
     };
   }
 
@@ -54,7 +55,7 @@ function addToCart(productId, productName, head = '', capacity = '') {
   showToast(`${productName} added to cart`);
 
   // Reset input
-  const inputIds = ['fsa-head', 'fsa-capacity', 'gs-head', 'gs-capacity', 'evmsg-head', 'evmsg-capacity','cdx-head','cdx-capacity'];
+  const inputIds = ['fsa-head', 'fsa-capacity', 'gs-head', 'gs-capacity','evmsg-head', 'evmsg-capacity','cdx-head','cdx-capacity','ebarasub-head','ebarasub-capacity','ebara3d-head','ebara3d-capacity'];
   inputIds.forEach(id => {
     const input = document.getElementById(id);
     if (input) input.value = '';
@@ -121,7 +122,7 @@ function displayCartItems() {
             <div class="d-flex align-items-center">
               <button class="btn btn-sm btn-outline-secondary me-2" onclick="decreaseQuantity('${id}')">−</button>
               <span>${item.quantity}</span>
-              <small class="d-block text-muted ms-2">H: ${item.head || '-'} (m) | C: ${item.capacity || '-'} (m3/h)</small>
+              <small class="d-block text-muted ms-2">H: ${item.head || '-'} (m) | C: ${item.capacity || '-'} (m3/h) | P: ${item.pole || '-'} (Pole) </small>
               <button class="btn btn-sm btn-outline-secondary ms-2" onclick="increaseQuantity('${id}')">+</button>
             </div>
           </div>
@@ -220,12 +221,15 @@ function checkout() {
     return;
   }
 
-  let message = "Halo, saya ingin memesan:\n\n";
+  let message = "Halo, saya ingin Bertanya tentang produk ini Pake Type apa ya:\n\n";
   message += Object.entries(cart)
-    .map(([id, item]) => `- ${item.name} (Qty: ${item.quantity}) H: ${item.head || '-'} '(m)' | C: ${item.capacity || '-'} '(m3/h)'`)
-    .join('\n');
+    .map(([id, item]) =>
+  `- ${item.name} (Qty: ${item.quantity})` +
+  `\n   H: ${item.head || '-'} m | C: ${item.capacity || '-'} m³/h | P: ${item.pole || '-'} Pole`
+)
+      .join('\n\n');
 
-  message += "\n\nMohon konfirmasi ketersediaan barang. Terima kasih!";
+  message += "\n\nMohon konfirmasi dengan saya Tentang Produk ini. Terima kasih!";
   window.open(`https://wa.me/6285775230813?text=${encodeURIComponent(message)}`, '_blank',150);
 }
 

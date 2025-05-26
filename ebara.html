@@ -30,6 +30,11 @@ body, html {
   min-height: 100vh;
 }
 
+/* notifikasi di depan */
+#toast-container {
+  z-index: 9999;
+}
+
     /* akhir style */
     /* Custom Jumbotron Style */
     .jumbotron-ebara {
@@ -291,11 +296,11 @@ body, html {
   <!-- ebara product -->
   <section class="ebara-product mt-5">
     <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-md-6 col-sm-12 col-lg-4 m-2" style="width: 19rem;">
-        <div class="card" style="width: 18rem;">
+      <div class="row justify-content-center" style="display: flex;">
+        <div class="col-md-6 col-sm-12 col-lg-4 m-2" style="max-width: 19rem;">
+        <div class="card" style="max-width: 20rem;">
           <img src="./img/FSA.png" class="card-img-top" alt="Ebara Product 1">
-          <div class="card-body">
+          <div class="card-body" style="flex-grow: 1;">
             <h5 class="card-title">Ebara FSA Pump</h5>
             <p class="card-text"> Ebara FSA Series centrifugal pumps deliver unmatched efficiency and reliability for industrial fluid handling. and flexible pump if required in use </p>
             <a href="#" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#ebarafsaModal">View</a>
@@ -303,10 +308,10 @@ body, html {
         </div>
         </div>
 
-        <div class="col-md-6 col-sm-12 col-lg-4 m-2" style="width: 19rem;">
-          <div class="card" style="width: 18rem;">
+        <div class="col-md-6 col-sm-12 col-lg-4 m-2" style="max-width: 19rem;">
+          <div class="card" style="max-width: 20rem;">
             <img src="./img/gspump.png" class="card-img-top" alt="Ebara Product 2">
-            <div class="card-body">
+            <div class="card-body" style="flex-grow: 1;">
               <h5 class="card-title">Ebara GS Pump</h5>
               <p class="card-text">  Ebara GS Series represents the pinnacle of end-suction centrifugal pump technology, combining robust construction with energy-efficient performance. </p>
               <a href="#" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#ebaragsModal">View</a>
@@ -316,11 +321,11 @@ body, html {
 
       </div>
 
-      <div class="row justify-content-center">
-        <div class="col-md-6 col-sm-12 col-lg-4 m-2" style="width: 19rem;">
-        <div class="card" style="width: 18rem;">
+      <div class="row justify-content-center" style="display: flex;">
+        <div class="col-md-6 col-sm-12 col-lg-4 m-2" style="max-width: 19rem;">
+        <div class="card" style="max-width: 18rem;">
           <img src="./img/EVMSG.png" class="card-img-top" alt="Ebara Product 1">
-          <div class="card-body">
+          <div class="card-body" style="flex-grow: 1;">
             <h5 class="card-title">Ebara EVMSG Pump</h5>
             <p class="card-text"> High-efficiency vertical multistage pumps for space-constrained installations. </p>
             <a href="#" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#ebaraevmsgModal">View</a>
@@ -328,10 +333,10 @@ body, html {
         </div>
         </div>
 
-        <div class="col-md-6 col-sm-12 col-lg-4 m-2" style="width: 19rem;">
-          <div class="card" style="width: 18rem;">
+        <div class="col-md-6 col-sm-12 col-lg-4 m-2" style="max-width: 19rem;">
+          <div class="card" style="max-width: 18rem;">
             <img src="./img/CDX.png" class="card-img-top" alt="Ebara Product 2">
-            <div class="card-body">
+            <div class="card-body" style="flex-grow: 1;">
               <h5 class="card-title">Ebara CDX Pump</h5>
               <p class="card-text"> Horizontal multistage pump for high-pressure industrial applications. </p>
               <a href="#" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#ebaracdxModal">View</a>
@@ -341,26 +346,26 @@ body, html {
 
       </div>
 
-      <div class="row justify-content-center mt-4">
+      <div class="row justify-content-center mt-4" style="display: flex;">
        
-        <div class="col-md-6 col-sm-12 col-lg-4 m-2" style="width: 19rem;">
+        <div class="col-md-6 col-sm-12 col-lg-4 m-2" style="max-width: 19rem;">
           <div class="card" style="width: 18rem;">
             <img src="./img/DLDFDVS.png" class="card-img-top" alt="Ebara Product 2">
-            <div class="card-body">
-              <h5 class="card-title">Ebara DL,DS,DVS Pump</h5>
-              <p class="card-text"> EBARA DL, DS, and DVS are vertical in-line pump series that are efficient, space-saving, and suitable for clean water applications.</p>
-              <a href="#" class="btn btn-primary btn-lg">View</a>
+            <div class="card-body" style="flex-grow: 1;">
+              <h5 class="card-title">Ebara DL,DS,DF,DVS Pump</h5>
+              <p class="card-text"> EBARA DL, DS, DF and DVS are vertical in-line pump series that are efficient, space-saving, and suitable for clean water applications.</p>
+              <a href="#" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#ebarasubModal">View</a>
             </div>
           </div>
           </div>
 
-          <div class="col-md-6 col-sm-12 col-lg-4 m-2" style="width: 19rem;">
+          <div class="col-md-6 col-sm-12 col-lg-4 m-2" style="max-width: 19rem;">
             <div class="card" style="width: 18rem;">
               <img src="./img/3D.png" class="card-img-top" alt="Ebara Product 2">
-              <div class="card-body">
+              <div class="card-body" style="flex-grow: 1;">
                 <h5 class="card-title">Ebara Centrifugal 3D Pump</h5>
                 <p class="card-text"> EBARA 3D is a horizontal end-suction pump series that is efficient, space-saving, and suitable for clean water applications. </p>
-                <a href="#" class="btn btn-primary btn-lg">View</a>
+                <a href="#" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#ebara3DModal">View</a>
               </div>
             </div>
             </div>
@@ -471,6 +476,13 @@ body, html {
 
           <label for="fsa-capacity" class="form-label">Input Capacity (m³/h):</label>
           <input type="number" id="fsa-capacity" class="form-control" placeholder="input Capacity (m³/h)">
+
+          <label for="fsa-pole" class="form-label">Input Pole:</label>
+          <select id="fsa-pole" class="form-select">
+          <option value="2">2 Pole</option>
+          <option value="4">4 Pole</option>
+            </select>
+
         </div>
 
         <!-- akhir cap and head -->
@@ -487,7 +499,8 @@ body, html {
       <div class="modal-footer">
         <button class="btn btn-dark" onclick="addToCart('ebara-fsa', 'Ebara FSA Pump',
         document.getElementById('fsa-head').value,
-        document.getElementById('fsa-capacity').value)">
+        document.getElementById('fsa-capacity').value,
+        document.getElementById('fsa-pole').value)">
           <i class="bi bi-cart-plus-fill"></i> Shop
         </button>
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -523,7 +536,7 @@ body, html {
         <div id="ebaraGSCarousel" class="carousel slide modal-image-carousel mb-4" data-bs-ride="carousel" data-bs-interval="3200">
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <img src ="./img/gspump.png" class="d-block w-100" alt="Ebara GS Pump Front View">
+              <img src ="./img/GS.png" class="d-block w-100" alt="Ebara GS Pump Front View">
             </div>
             <div class="carousel-item">
               <img src="./img/gscart/modelgs1.png" class="d-block w-100" alt="Ebara GS Pump">
@@ -602,7 +615,7 @@ body, html {
           </div>
         </div>
 
-        <!-- cap and head (M) -->
+        <!-- cap and head (M) + 2pole/4pole -->
 
          <div class="mt-4">
           <h4 class="mb-2" style="font-weight: bold;"> Input Head and Capacity </h4>
@@ -611,6 +624,13 @@ body, html {
 
           <label for="gs-capacity" class="form-label">Input Capacity (m³/h):</label>
           <input type="number" id="gs-capacity" class="form-control" placeholder="input Capacity (m³/h)">
+           
+          <label for="gs-pole" class="form-label">Input Pole:</label>
+          <select id="gs-pole" class="form-select">
+          <option value="2">2 Pole</option>
+          <option value="4">4 Pole</option>
+            </select>
+
         </div>
 
         <!-- akhir cap and head -->
@@ -627,7 +647,8 @@ body, html {
       <div class="modal-footer">
         <button class="btn btn-dark btn-lg" onclick="addToCart('ebara-gs', 'Ebara GS Pump',
           document.getElementById('gs-head').value,
-          document.getElementById('gs-capacity').value)">
+          document.getElementById('gs-capacity').value,
+          document.getElementById('gs-pole').value)">
           <i class="bi bi-cart-plus-fill"></i> Shop
         </button>
         <button type="button" class="btn btn-secondary btn-lg" data-bs-dismiss="modal">Close</button>
@@ -749,6 +770,14 @@ body, html {
 
           <label for="evmsg-capacity" class="form-label">Input Capacity (m³/h):</label>
           <input type="number" id="evmsg-capacity" class="form-control" placeholder="input Capacity (m³/h)">
+
+          
+          <label for="fsa-pole" class="form-label">Input Pole:</label>
+          <select id="fsa-pole" class="form-select">
+          <option value="2">2 Pole</option>
+          </select>
+
+
         </div>
 
         <!-- akhir cap and head -->
@@ -801,7 +830,7 @@ body, html {
         <div id="ebaraCDXCarousel" class="carousel slide modal-image-carousel mb-4" data-bs-ride="carousel" data-bs-interval="3200">
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <img src="./img/cdx.png" class="d-block w-100" alt="Ebara CDX Pump Front View">
+              <img src="./img/CDX.png" class="d-block w-100" alt="Ebara CDX Pump Front View">
             </div>
             <div class="carousel-item">
               <img src="./img/cdxcart/cdxproduct1.png" class="d-block w-100" alt="Ebara CDX Picture">
@@ -888,6 +917,12 @@ body, html {
 
           <label for="cdx-capacity" class="form-label">Input Capacity (m³/h):</label>
           <input type="number" id="cdx-capacity" class="form-control" placeholder="input Capacity (m³/h)">
+
+          <label for="cdx-pole" class="form-label">Input Pole:</label>
+          <select id="cdx-pole" class="form-select">
+          <option value="2">2 Pole</option>
+          </select>
+
         </div>
 
         <!-- Download PDF -->
@@ -902,7 +937,8 @@ body, html {
       <div class="modal-footer">
         <button class="btn btn-dark btn-lg" onclick="addToCart('ebara-cdx', 'Ebara CDX Pump',
           document.getElementById('cdx-head').value,
-          document.getElementById('cdx-capacity').value)">
+          document.getElementById('cdx-capacity').value,
+          document.getElementById('cdx-pole').value)">
           <i class="bi bi-cart-plus-fill"></i> Shop
         </button>
         <button type="button" class="btn btn-secondary btn-lg" data-bs-dismiss="modal">Close</button>
@@ -921,6 +957,267 @@ body, html {
 
 
 <!-- Akhir product description CDX PUMP -->
+
+<!-- Product Ebara Submersible pump (DL,DS, DF, DVS) -->
+
+<div class="modal fade" id="ebarasubModal" tabindex="-1" aria-labelledby="ebarasubModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ebarasubModalLabel">Ebara Submersible Pump Series</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+         <!-- Image Carousel -->
+        <div id="ebaraCDXCarousel" class="carousel slide modal-image-carousel mb-4" data-bs-ride="carousel" data-bs-interval="3200">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="./img/DLDFDVS.png" class="d-block w-100" alt="Ebara CDX Pump Front View">
+            </div>
+            <div class="carousel-item">
+              <img src="./img/submersiblecart/submersibleproduct1.png" class="d-block w-100" alt="Ebara CDX Picture">
+            </div>
+            <div class="carousel-item">
+              <img src="./img/submersiblecart/submersibleproduct2.png" class="d-block w-100" alt="Ebara CDX Picture 2">
+            </div>
+          </div>
+        </div>
+
+        <!-- Product Description -->
+        <div>
+          <h4>Product Description</h4>
+          <p> Our Ebara Submersible Pump Series is designed to provide efficient and reliable water supply solutions for various applications.</p>
+
+          <ul>
+            <li>High-flow pump for water supply</li>
+            <li>Cast iron casing with stainless steel shaft</li>
+            <li>Back pull-out design for easy maintenance</li>
+            <li>Compliant with international standards</li>
+          </ul>
+
+        </div>
+        <!-- Specifications Table -->
+        <div class="mb-4">
+          <h4>Technical Specifications</h4>
+          <table class="spec-table">
+            <tr>
+              <th>Model</th>
+              <td>DL, DS, DF, DVS</td>
+            </tr>
+            <tr>
+              <th>Capacity</th>
+              <td>Up to 1500 m³/h</td>
+            </tr>
+            <tr>
+              <th>Head</th>
+              <td>Up to 160m</td>
+            </tr>
+            <tr>
+              <th>Power</th>
+              <td>0.37 kW to 2.2 kW</td>
+            </tr>
+            <tr>
+              <th>Max. Pressure</th>
+              <td>10 - 20 bar</td>
+            </tr>
+            <tr>
+              <th>Temperature Range</th>
+              <td>-10°C to +60°C</td>
+            </tr>
+          </table>
+        </div>
+        <!-- Input Head and Capacity -->
+        <div class="mb-4">
+          <h4 class="mb-2" style="font-weight: bold;"> Input Head and Capacity </h4>
+          <label for="ebarasub-head" class="form-label">Input Head (m):</label>
+          <input type="number" id="ebarasub-head" class="form-control mb-2" placeholder="input Head (M)">
+
+          <label for="ebarasub-capacity" class="form-label">Input Capacity (m³/h):</label>
+          <input type="number" id="ebarasub-capacity" class="form-control" placeholder="input Capacity (m³/h)">
+
+        </div>
+
+        <!-- Download PDF -->
+        <div class="pdf-file justify-content-center text-center">
+          <h5 class="mt-4">Download PDF Spec Sheet:</h5>
+          <a href="./pdf/Submersible_Ebara_catalog.pdf" target="_blank" class="btn btn-outline-danger mt-2 justify-content-center text-center">
+            <i class="bi bi-file-earmark-pdf-fill"></i> Download PDF
+          </a>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-dark btn-lg" onclick="addToCart('ebarasub', 'Ebara Submersible Pump',
+          document.getElementById('ebarasub-head').value,
+          document.getElementById('ebarasub-capacity').value)">
+          <i class="bi bi-cart-plus-fill"></i> Shop
+        </button>
+        <button type="button" class="btn btn-secondary btn-lg" data-bs-dismiss="modal">Close</button>
+        <a 
+          href="https://wa.me/6285775230813?text=Halo%20MJT,%20saya%20tertarik%20dengan%20produk%20Ebara%20Submersible%20Pump" 
+          class="btn btn-success btn-lg"
+          data-bs-dismiss="modal"
+          onclick="window.open(this.href, '_blank'); return false;"
+        >
+          <i class="bi bi-whatsapp"></i> Contact Us
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Akhir Product Ebara Submersible pump (DL,DS, DF, DVS) -->
+
+<!-- Product Ebara 3D Models pump -->
+   
+<div class="modal fade" id="ebara3DModal" tabindex="-1" aria-labelledby="ebara3DModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" style="max-width: 900px;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ebara3DModalLabel">Ebara 3D Pump Series</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <!-- Image Carousel -->
+        <div id="ebara3DModal" class="carousel slide modal-image-carousel mb-4" data-bs-ride="carousel" data-bs-interval="3200">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="./img/3D.png" class="d-block w-100" alt="Ebara 3D Pump View 1">
+            </div>
+            <div class="carousel-item">
+              <img src="./img/ebara3dcart/3dmodel1.png" class="d-block w-100" alt="Ebara 3D Pump Curve">
+            </div>
+            <div class="carousel-item">
+              <img src="./img/ebara3dcart/3dmodel2.png" class="d-block w-100" alt="Ebara 3D Pump Curve">
+            </div>
+            <div class="carousel-item">
+              <img src="./img/ebara3dcart/3dmodel3.png" class="d-block w-100" alt="Ebara 3D Pump Curve">
+            </div>
+          </div>
+        </div>
+
+        <!-- Product Description -->
+        <div class="mb-4">
+          <h4>Product Description</h4>
+          <p>
+            The Ebara 3D series is a robust horizontal end-suction centrifugal pump, suitable for a wide range of industrial and commercial water applications. Designed for high efficiency and easy maintenance, the 3D series delivers reliable performance and long-term durability.
+          </p>
+          <ul>
+            <li>Horizontal end-suction centrifugal design</li>
+            <li>Back pull-out construction for easy maintenance</li>
+            <li>Cast iron casing and impeller (stainless steel optional)</li>
+            <li>Mechanical seal with standard dimensions</li>
+            <li>Wide range of sizes and capacities</li>
+            <li>Conforms to EN 733 (DIN 24255) standards</li>
+          </ul>
+        </div>
+
+        <!-- Technical Specifications -->
+        <div class="mb-4">
+          <h4>Technical Specifications</h4>
+          <table class="spec-table">
+            <tr>
+              <th>Model</th>
+              <td>3D</td>
+            </tr>
+            <tr>
+              <th>Capacity</th>
+              <td>Up to 1080 m³/h</td>
+            </tr>
+            <tr>
+              <th>Head</th>
+              <td>Up to 100 m</td>
+            </tr>
+            <tr>
+              <th>Power</th>
+              <td>Up to 132 kW</td>
+            </tr>
+            <tr>
+              <th>Max. Pressure</th>
+              <td>10 bar</td>
+            </tr>
+            <tr>
+              <th>Temperature Range</th>
+              <td>-10°C to +90°C</td>
+            </tr>
+          </table>
+        </div>
+
+        <!-- Typical Applications -->
+        <div>
+          <h4>Typical Applications</h4>
+          <div class="row">
+            <div class="col-md-6">
+              <ul>
+                <li>Water supply systems</li>
+                <li>Booster systems</li>
+                <li>Cooling towers</li>
+              </ul>
+            </div>
+            <div class="col-md-6">
+              <ul>
+                <li>Irrigation systems</li>
+                <li>Fire-fighting systems</li>
+                <li>HVAC circulation</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Input Head and Capacity -->
+        <div class="mb-4">
+          <h4 class="mb-2" style="font-weight: bold;"> Input Head and Capacity </h4>
+          <label for="ebara3d-head" class="form-label">Input Head (m):</label>
+          <input type="number" id="ebara3d-head" class="form-control mb-2" placeholder="input Head (M)">
+
+          <label for="ebara3d-capacity" class="form-label">Input Capacity (m³/h):</label>
+          <input type="number" id="ebara3d-capacity" class="form-control" placeholder="input Capacity (m³/h)">
+
+           <label for="ebara3d-pole" class="form-label">Input Pole:</label>
+          <select id="ebara3d-pole" class="form-select">
+          <option value="2">2 Pole</option>
+          </select>
+
+
+        </div>
+
+        <!-- Download PDF -->
+         <div class="pdf-file justify-content-center text-center">
+        <h5 class="mt-4">Download PDF Spec Sheet:</h5>
+        <a href="./pdf/3D_catalog_ebara.pdf" target="_blank" class="btn btn-outline-danger mt-2">
+          <i class="bi bi-file-earmark-pdf-fill"></i> Download PDF
+        </a>
+        </div>
+
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="modal-footer">
+        <button class="btn btn-dark btn-lg" onclick="addToCart('ebara3d', 'Ebara 3D Pump',
+        document.getElementById('ebara3d-head').value,
+        document.getElementById('ebara3d-capacity').value,
+        document.getElementById('ebara3d-pole').value)">
+          
+          <i class="bi bi-cart-plus-fill"></i> Shop
+        </button>
+        <button type="button" class="btn btn-secondary btn-lg" data-bs-dismiss="modal">Close</button>
+        <a 
+          href="https://wa.me/6285775230813?text=Halo%20MJT,%20saya%20tertarik%20dengan%20produk%20Ebara%203D%20Pump"
+          class="btn btn-success btn-lg"
+          data-bs-dismiss="modal"
+          onclick="window.open(this.href, '_blank'); return false;">
+          <i class="bi bi-whatsapp"></i> Contact Us
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Akhir Product Ebara 3D Models pump -->
 
 <!-- FOOTER -->
 
