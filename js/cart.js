@@ -8,8 +8,8 @@ function initCart() {
   }
 }
 
-function generateCartKey(productId, head = '', capacity = '', pole = '') {
-  return `${productId}_${head}_${capacity}_${pole}`;
+function generateCartKey(productId, head = '', capacity = '', pole = '', selectedtype = '') {
+  return `${productId}_${head}_${capacity}_${pole}_${selectedtype}`;
 }
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -30,10 +30,10 @@ document.addEventListener('DOMContentLoaded', function() {
 // MENAMBAH ITEM KE CART
 // =========================
 
-function addToCart(productId, productName, head = '', capacity = '', pole = '') {
+function addToCart(productId, productName, head = '', capacity = '', pole = '', selectedtype = '',) {
   initCart();
 
-  const uniqueId = generateCartKey(productId, head, capacity , pole);
+  const uniqueId = generateCartKey(productId, head, capacity , pole, selectedtype);
   let cart = JSON.parse(localStorage.getItem('cart'));
 
   if (cart[uniqueId]) {
@@ -44,6 +44,7 @@ function addToCart(productId, productName, head = '', capacity = '', pole = '') 
       quantity: 1,
       head: head,
       capacity: capacity,
+      selectedtype: selectedtype,
       addedAt: new Date().toISOString(),
       pole: pole
     };
@@ -55,11 +56,15 @@ function addToCart(productId, productName, head = '', capacity = '', pole = '') 
   showToast(`${productName} added to cart`);
 
   // Reset input
-  const inputIds = ['fsa-head', 'fsa-capacity', 'gs-head', 'gs-capacity','evmsg-head', 'evmsg-capacity','cdx-head','cdx-capacity','ebarasub-head','ebarasub-capacity','ebara3d-head','ebara3d-capacity'];
+  const inputIds = ['fsa-head', 'fsa-capacity', 'gs-head', 'gs-capacity','evmsg-head', 'evmsg-capacity','cdx-head','cdx-capacity','ebarasub-head','ebarasub-capacity','ebara3d-head','ebara3d-capacity','torishima-head','torishima-capacity'];
   inputIds.forEach(id => {
     const input = document.getElementById(id);
     if (input) input.value = '';
   });
+
+    // Reset radio button typeOption
+  const selectedRadio = document.querySelector('input[name="typeOption"]:checked');
+  if (selectedRadio) selectedRadio.checked = false;
 }
 
 // =========================
@@ -117,21 +122,24 @@ function displayCartItems() {
 
   container.innerHTML = Object.keys(cart).length === 0 
     ? '<p class="text-center">Your cart is empty</p>'
-    : Object.entries(cart).map(([id, item]) => `
-        <div class="cart-item d-flex justify-content-between align-items-center mb-3 p-2 border-bottom">
-          <div>
-            <h6 class="mb-1">${item.name}</h6>
-            <div class="d-flex align-items-center">
-              <button class="btn btn-sm btn-outline-secondary me-2" onclick="decreaseQuantity('${id}')">−</button>
-              <span>${item.quantity}</span>
-              <small class="d-block text-muted ms-2">H: ${item.head || '-'} (m) | C: ${item.capacity || '-'} (m3/h) | P: ${item.pole || '-'} (Pole) </small>
-              <button class="btn btn-sm btn-outline-secondary ms-2" onclick="increaseQuantity('${id}')">+</button>
-            </div>
-          </div>
-          <button class="btn btn-sm btn-outline-danger" onclick="removeFromCart('${id}')">
-            <i class="bi bi-trash"></i>
-          </button>
-        </div>
+    :Object.entries(cart).map(([id, item]) => `
+  <div class="cart-item mb-3 p-3 border rounded bg-light">
+    <h6 class="mb-2">${item.name}</h6>
+    
+    <div class="d-flex align-items-center mb-2">
+      <button class="btn btn-sm btn-outline-secondary me-2" onclick="decreaseQuantity('${id}')">−</button>
+      <span>${item.quantity}</span>
+      <button class="btn btn-sm btn-outline-secondary ms-2" onclick="increaseQuantity('${id}')">+</button>
+    </div>
+
+    <div class="text-muted small mb-2">
+      H: ${item.head || '-'} (m) | C: ${item.capacity || '-'} (m³/h) | P: ${item.pole || '-'} (Pole) | Type: ${item.selectedtype || '-'}
+    </div>
+
+    <button class="btn btn-sm btn-outline-danger" onclick="removeFromCart('${id}')">
+      <i class="bi bi-trash"></i> Remove
+    </button>
+  </div>
       `).join('');
 }
 
@@ -227,7 +235,7 @@ function checkout() {
   message += Object.entries(cart)
     .map(([id, item]) =>
   `- ${item.name} (Qty: ${item.quantity})` +
-  `\n   H: ${item.head || '-'} m | C: ${item.capacity || '-'} m³/h | P: ${item.pole || '-'} Pole`
+  `\n   H: ${item.head || '-'} m | C: ${item.capacity || '-'} m³/h | P: ${item.pole || '-'} Pole | Type: ${item.selectedtype || '-'} ` 
 )
       .join('\n\n');
 

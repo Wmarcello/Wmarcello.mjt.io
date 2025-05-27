@@ -624,7 +624,8 @@ body, html {
 
           <label for="gs-capacity" class="form-label">Input Capacity (m³/h):</label>
           <input type="number" id="gs-capacity" class="form-control" placeholder="input Capacity (m³/h)">
-           
+
+           <!-- Pilih Pole -->
           <label for="gs-pole" class="form-label">Input Pole:</label>
           <select id="gs-pole" class="form-select">
           <option value="2">2 Pole</option>
@@ -833,10 +834,10 @@ body, html {
               <img src="./img/CDX.png" class="d-block w-100" alt="Ebara CDX Pump Front View">
             </div>
             <div class="carousel-item">
-              <img src="./img/cdxcart/cdxproduct1.png" class="d-block w-100" alt="Ebara CDX Picture">
+             <img src="./img/cdxcart/cdxproduct1.png" class="d-block w-100" alt="Ebara CDX Picture">
             </div>
             <div class="carousel-item">
-              <img src="./img/cdxcart/cdxproduct4.png" class="d-block w-100" alt="Ebara CDX Picture 2">
+              <img src="./img/cdxcart/cdxproduct2.png" class="d-block w-100" alt="Ebara CDX Picture 2">
             </div>
             <div class="carousel-item">
               <img src="./img/cdxcart/cdxproduct3.png" class="d-block w-100" alt="Ebara CDX performance curve">
@@ -1036,6 +1037,31 @@ body, html {
           <label for="ebarasub-capacity" class="form-label">Input Capacity (m³/h):</label>
           <input type="number" id="ebarasub-capacity" class="form-control" placeholder="input Capacity (m³/h)">
 
+          
+          <!-- Pilih Type Pump -->
+
+          <div class="mb-3">
+  <label class="form-label"><strong>Pilih Type yang Diinginkan:</strong></label><br>
+  <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="typeOption" value="DL" id="typeDL">
+    <label class="form-check-label" for="typeDL">DL</label>
+  </div>
+  <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="typeOption" value="DS" id="typeDS">
+    <label class="form-check-label" for="typeDS">DS</label>
+  </div>
+   <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="typeOption" value="DF" id="typeDF">
+    <label class="form-check-label" for="typeDF">DF</label>
+  </div>
+  <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="typeOption" value="DVS" id="typeDVS">
+    <label class="form-check-label" for="typeDVS">DVS</label>
+  </div>
+</div>
+            <!-- Akhir Pilih Type -->
+
+
         </div>
 
         <!-- Download PDF -->
@@ -1050,7 +1076,9 @@ body, html {
       <div class="modal-footer">
         <button class="btn btn-dark btn-lg" onclick="addToCart('ebarasub', 'Ebara Submersible Pump',
           document.getElementById('ebarasub-head').value,
-          document.getElementById('ebarasub-capacity').value)">
+          document.getElementById('ebarasub-capacity').value,
+          '',
+          getselectedtype())">
           <i class="bi bi-cart-plus-fill"></i> Shop
         </button>
         <button type="button" class="btn btn-secondary btn-lg" data-bs-dismiss="modal">Close</button>
@@ -1297,6 +1325,17 @@ body, html {
   </script>
   
   <!-- akhir js demo product -->
+   
+  <!-- Selected Type of Product -->
+
+  <script>
+function getselectedtype() {
+  const selected = document.querySelector('input[name="typeOption"]:checked');
+  return selected ? selected.value : '';
+}
+</script>
+
+  <!-- Akhir Selected Type of Product -->
   
 </body>
 </html>
