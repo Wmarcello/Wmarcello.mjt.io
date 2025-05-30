@@ -31,6 +31,13 @@ document.addEventListener('DOMContentLoaded', function() {
 // =========================
 
 function addToCart(productId, productName, head = '', capacity = '', pole = '', selectedtype = '',) {
+
+   // Cek jika field Head atau Capacity kosong
+  if (!head || !capacity) {
+    showToast('Mohon isi Head dan Capacity terlebih dahulu.');
+    return;
+  }
+
   initCart();
 
   const uniqueId = generateCartKey(productId, head, capacity , pole, selectedtype);
@@ -56,7 +63,7 @@ function addToCart(productId, productName, head = '', capacity = '', pole = '', 
   showToast(`${productName} added to cart`);
 
   // Reset input
-  const inputIds = ['fsa-head', 'fsa-capacity', 'gs-head', 'gs-capacity','evmsg-head', 'evmsg-capacity','cdx-head','cdx-capacity','ebarasub-head','ebarasub-capacity','ebara3d-head','ebara3d-capacity','torishima-head','torishima-capacity'];
+  const inputIds = ['fsa-head', 'fsa-capacity', 'gs-head', 'gs-capacity','evmsg-head', 'evmsg-capacity','cdx-head','cdx-capacity','ebarasub-head','ebarasub-capacity','ebara3d-head','ebara3d-capacity','torishima-head','torishima-capacity','gl-head','gl-capacity'];
   inputIds.forEach(id => {
     const input = document.getElementById(id);
     if (input) input.value = '';
@@ -123,7 +130,7 @@ function displayCartItems() {
   container.innerHTML = Object.keys(cart).length === 0 
     ? '<p class="text-center">Your cart is empty</p>'
     :Object.entries(cart).map(([id, item]) => `
-  <div class="cart-item mb-3 p-3 border rounded bg-light">
+  <div class="cart-item mb-3 p-3 border rounded">
     <h6 class="mb-2">${item.name}</h6>
     
     <div class="d-flex align-items-center mb-2">
@@ -227,7 +234,7 @@ function checkout() {
   const cart = JSON.parse(localStorage.getItem('cart')) || {};
 
   if (Object.keys(cart).length === 0) {
-    showToast('Keranjang masih kosong');
+    showToast('Keranjang masih kosong !');
     return;
   }
 

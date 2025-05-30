@@ -90,22 +90,31 @@ html, body {
 
     .torishima-product .card{
       box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4);
+      margin: auto;
     }
 
     .torishima-product .card .btn{
       box-shadow: 2px 2px 2px rgba(7, 23, 206, 0.5);
     }
 
-    .torishima-product .card{
-      margin: auto;
-    }
 
-    /* akhir ebara product */
+    /* disabled wa */
 
-    /* modal torishima product css */
+       .disabled-wa {
+         opacity: 0.6;
+         pointer-events: none;
+      }
+    
+    /* akhir disabled */
+
+     /* agar tidak delay */
+    button, a {
+     touch-action: manipulation;
+   }
 
      /* Image carousel in modal */
-     .modal-image-carousel .carousel-item img {
+   
+   .carousel-item img {
       max-height: 350px;
       object-fit: contain;
       margin: 0 auto;
@@ -141,22 +150,21 @@ html, body {
 
     /* akhir modal torishima product */
 
-    /* footer */
+    
+     /* footer */
+ 
+      footer{
+        background-image: url('./img/green.png');
+        background-color: white;
+        background-position: center;
+        background-size : cover;
+        bottom: 0;
+        top: 0;
+        left: 0;
+        right: 0;
+        padding: 10px;
+      }
 
-    footer{
-      bottom: 0;
-      width: 100%;
-      background-image: url('./img/green.png');
-      background-size: cover;
-      background-position: center;
-      color: white;
-      padding: 10px;
-      line-height: 160px;
-      text-align: center;
-      font-weight: bold;
-    }
-
-  
     /* akhir footer */
 
     /* media query */
@@ -186,13 +194,14 @@ html, body {
         margin-top: 80px;
         padding-top: 20px;
       }
-
-      footer{
-        line-height: 80px;
-        font-size: .5rem;
-        text-align: center;
-        
+      
+      footer img {
+       max-height: 20px !important;
       }
+      footer p{
+       font-size: 10px !important;
+        }
+
 
 
     }
@@ -282,13 +291,13 @@ html, body {
 <!-- Modal Product Torishima -->
 
 <div class="modal fade" id="torishimaCENModal" tabindex="-1" aria-labelledby="torishimaCENModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-lg" style="max-width: 900px;">
+  <div class="modal-dialog modal-dialog-centered modal-fullscreen-sm-down" style="max-width: 900px; width: 100%;">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="torishimaCENModalLabel">Torishima CEN Pump Series</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body justify-content-center">
         <!-- Image Carousel -->
         <div id="torishimaCENCarousel" class="carousel slide modal-image-carousel mb-4" data-bs-ride="carousel" data-bs-interval="2900">
           <div class="carousel-inner">
@@ -372,11 +381,11 @@ html, body {
         
          <div class="mt-4">
           <h4 class="mb-2" style="font-weight: bold;"> Input Head and Capacity </h4>
-          <label for="gs-head" class="form-label">Input Head (m):</label>
-          <input type="number" id="gs-head" class="form-control mb-2" placeholder="input Head (M)">
+          <label for="torishima-head" class="form-label">Input Head (m):</label>
+          <input type="number" id="torishima-head" class="form-control mb-2" placeholder="input Head (M)">
 
-          <label for="gs-capacity" class="form-label">Input Capacity (m³/h):</label>
-          <input type="number" id="gs-capacity" class="form-control" placeholder="input Capacity (m³/h)">
+          <label for="torishima-capacity" class="form-label">Input Capacity (m³/h):</label>
+          <input type="number" id="torishima-capacity" class="form-control" placeholder="input Capacity (m³/h)">
            
           <label for="torishima-pole" class="form-label">Input Pole:</label>
           <select id="torishima-pole" class="form-select">
@@ -400,7 +409,7 @@ html, body {
           document.getElementById('torishima-capacity').value,
           document.getElementById('torishima-pole').value)">
 
-          <i class="bi bi-cart-dash-fill"></i> Shop </a>
+         <i class="bi bi-cart-plus-fill"></i> Shop
         </button>
         <button type="button" class="btn btn-secondary btn-lg" data-bs-dismiss="modal">Close</button>
         <a 
@@ -419,21 +428,26 @@ html, body {
 
 <!-- Akhir Modal Product -->
 
-<!-- FOOTER -->
+<!-- akhir modal product Koshin GL -->
 
+<!-- Footer -->
 <footer class="bg-dark text-light py-3 mt-4">
-  <div class="container">
-    <div class="row">
-      <div class="col-10 col- md-8 justify-content-center">
-        <p>&copy; 2025 PT. MEGA JAYA TEKINDO. <img src="./img/mjt.png" alt="MJT" class="img-fluid-brand-logo" style="max-height: 30px;"></p>
-      </div>
-      <div class="col-2 col-md-2 col-lg-2 mb-4 text-center">
-        <img src="./img/torishima.png" alt="Ebara" class="img-fluid brand-logo" style="max-height: 70px;">
-      </div>
-     
+  <div class="container d-flex flex-column justify-content-center align-items-center text-center">
+    
+    <!-- Teks + Logo MJT -->
+    <div class="d-flex align-items-center gap-2 mb-2">
+      <p class="mb-0">&copy; 2025 PT. MEGA JAYA TEKINDO.</p>
+      <img src="./img/mjt.png" alt="MJT Logo" class="img-fluid" style="max-height: 25px;">
     </div>
+
+    <!-- Logo Brand Lain (misal Koshin) -->
+    <div>
+      <img src="./img/torishima.png" alt="Koshin Logo" class="img-fluid" style="max-height: 35px;">
+    </div>
+
   </div>
 </footer>
+
 
 <!-- Akhir Footer -->
 
@@ -454,48 +468,6 @@ html, body {
 <script src="./js/cart.js"></script>
 
 <!-- Akhir cart .js -->
-
-<!--  cart js produk cen -->
-  <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    // Tangani klik produk
-    document.querySelectorAll('.product-link').forEach(link => {
-      link.addEventListener('click', function(e) {
-        e.preventDefault();
-        const productId = this.getAttribute('data-product');
-        
-        // Sembunyikan semua section
-        document.querySelectorAll('section').forEach(section => {
-          section.style.display = 'none';
-        });
-        
-        // Tampilkan detail produk
-        document.getElementById('product-detail').style.display = 'block';
-        
-        // Load konten produk (bisa dari AJAX atau template)
-        loadProductDetail(productId);
-      });
-    });
-    
-    // Tombol back
-    document.getElementById('back-to-products').addEventListener('click', function() {
-      document.getElementById('product-detail').style.display = 'none';
-      document.querySelectorAll('section').forEach(section => {
-        section.style.display = 'block';
-      });
-    });
-  });
-  
-  function loadProductDetail(productId) {
-    // Ini bisa diisi dengan AJAX atau template
-    const detailContainer = document.getElementById('product-detail-content');
-    detailContainer.innerHTML = `
-      <h3>Product ${productId} Details</h3>
-      <p>Detailed information about product ${productId}</p>
-    `;
-  }
-  
-  </script>
 
   
 </div>

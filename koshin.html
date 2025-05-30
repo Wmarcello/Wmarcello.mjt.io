@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Koshin Product</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- talwind css -->
+    <link href="./src/output.css" rel="stylesheet">
+
+  <!-- css langsung -->
+  <style>
+
+    /* Body html dll */
+
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+    .page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* notifikasi di depan */
+#toast-container {
+  z-index: 9999;
+}
+
+
+    /* Akhir Body html dll */
+
+     /* Custom Jumbotron Style */
+    .jumbotron-ebara {
+      background-image: url('./img/gray_bg.png');
+      font-family: 'Anton', sans-serif;
+      background-size: cover;
+      background-position: center;
+      height: 65vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      position: relative;
+    }
+    
+    .jumbotron-ebara::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+    
+    .jumbotron-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      padding: 2rem;
+    }
+    
+    .btn-back {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      z-index: 2;
+    }
+
+    /* btn cart */
+    /* Akhir Jumbotron dan btn cart */
+
+    /* product description */
+    .product-description{
+  margin-top: 50px;
+  padding-top: 20px;
+  border-top: 2px solid black;
+}
+
+     /* footer */
+ 
+      footer{
+        background-image: url('./img/gray_bg.png');
+        background-color: white;
+        background-position: center;
+        background-size : cover;
+        bottom: 0;
+        top: 0;
+        left: 0;
+        right: 0;
+        padding: 10px;
+      }
+
+    /* akhir footer */
+
+    /* media queery */
+    @media (max-width: 565px) {
+
+
+      .modal-image-carousel .carousel-item img {
+       max-height: 250px;
+  }
+
+     .modal-footer .btn {
+  width: 100%;
+  height: 40px;
+
+}
+   .modal-dialog{
+    width: 100%;
+    max-width: 400px;
+   }
+
+  footer img {
+    max-height: 20px !important;
+  }
+  footer p{
+    font-size: 10px !important;
+  }
+
+
+
+
+      
+
+    }
+
+    /* akhir media queery */
+
+  </style>
+
+</head>
+<body>
+
+  <!-- Jumbotron dengan Tombol Back -->
+  <section class="jumbotron-ebara">
+    <a href="index.html" class="btn btn-outline-light btn-back">
+      <i class="bi bi-arrow-left"></i> Back to Home
+    </a>
+    
+    <div class="jumbotron-content">
+      <h1 class="display-4"> KOSHIN </h1>
+      <p class="lead"> Trusted engineering excellence for the world's toughest pumping challenges </p>
+      <hr class="my-4">
+      <p> KOSHIN – Driving Global Progress with Precision and Innovation Since 1948.</p>
+    </div>
+  </section>
+
+  <!-- akhir jumbotron -->
+
+  <!-- shopping cart -->
+
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <button type="button" class="btn btn-dark mt-5 btn-lg" id="shop-cart" data-bs-toggle="modal" data-bs-target="#cartModal">
+          <i class="bi bi-cart"></i> <span id="cart-count"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- akhir shopping cart -->
+
+  <!-- shopping cart modal-->
+
+  <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg"style="max-width: 800px;">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="cartModalLabel">Shopping Cart</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="cart-items"></div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-danger btn-co" onclick="checkout()" id="whatsapp-button" disabled><i class="bi bi-whatsapp" ></i> Checkout</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- akhir shopping cart -->
+
+  <!-- KSB Products awal -->
+
+  <section class="ksb-product">
+    <div class="container">
+      <div class="row justify-content-center" style="display: flex;">
+        <div class="col-md-6 col-sm-12 col-lg-4 m-4" style="max-width: 19rem;">
+        <div class="card" style="max-width: 20rem;">
+          <img src="./img/koshincart/koshin_1.png" class="card-img-top" alt="Koshin Product 1">
+          <div class="card-body" style="flex-grow: 1;">
+            <h5 class="card-title text-2xl font-bold color-blue"> Koshin GL Pump</h5>
+            <p class="card-text"> Koshin GL Series represents the pinnacle of end-suction centrifugal pump technology, combining robust construction with energy-efficient performance. </p>
+            <a href="#" class="btn btn-dark btn-lg" data-bs-toggle="modal" data-bs-target="#koshinGLModal">View</a>
+          </div>
+        </div>
+        </div>
+    </div>
+  </section>
+
+  <!-- Akhir KSB Products Awal -->
+
+  <!-- KSB Product Modal -->
+
+  <!-- modal product Koshin GL -->
+
+<div class="modal fade" id="koshinGLModal" tabindex="-1" aria-labelledby="koshinGLModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-fullscreen-sm-down" style="max-width: 800px; width: 100%;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="koshinGLModalLabel">Koshin GL Gear Pump Series</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body justify-content-center">
+
+        <!-- Image Carousel -->
+        <div id="koshinGLCarousel" class="carousel slide carousel- modal-image-carousel mb-4" data-bs-ride="carousel" data-bs-interval="3200">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="./img/koshincart/koshin_1.png" class="d-block w-100" alt="Koshin GL Gear Pump Front View">
+            </div>
+            <div class="carousel-item">
+              <img src="./img/koshincart/koshin_gl1.png" class="d-block w-100" alt="Koshin GL Pump Performance Curve">
+            </div>
+            <div class="carousel-item">
+              <img src="./img/koshincart/koshin_gl2.png" class="d-block w-100" alt="Koshin GL Pump Diagram">
+            </div>
+             <div class="carousel-item">
+              <img src="./img/koshincart/koshin_gl3.png" class="d-block w-100" alt="Koshin GL Pump Diagram">
+            </div>
+          </div>
+        </div>
+
+        <!-- Product Description -->
+        <div class="mb-4">
+          <h4 class="product-description">Product Description</h4>
+          <p>The Koshin GL Gear Pump is a compact and robust solution for oil transfer, chemical processing, and industrial lubrication systems.</p>
+          <ul>
+            <li>Positive displacement rotary gear pump</li>
+            <li>Cast iron body with precision-machined gears</li>
+            <li>Compact design suitable for fixed or portable systems</li>
+            <li>Excellent self-priming capability</li>
+            <li>High viscosity handling capability</li>
+          </ul>
+        </div>
+
+        <!-- Specifications Table -->
+        <div class="mb-4">
+          <h4>Technical Specifications</h4>
+          <table class="spec-table">
+            <tr>
+              <th>Model</th>
+              <td>GL</td>
+            </tr>
+            <tr>
+              <th>Flow Rate</th>
+              <td>Up to 50 L/min</td>
+            </tr>
+            <tr>
+              <th>Pressure</th>
+              <td>Up to 10 bar</td>
+            </tr>
+            <tr>
+              <th>Power</th>
+              <td>0.5 - 1.5 HP</td>
+            </tr>
+            <tr>
+              <th>Material</th>
+              <td>Cast Iron / Stainless Steel options</td>
+            </tr>
+            <tr>
+              <th>Viscosity Range</th>
+              <td>Up to 1000 cP</td>
+            </tr>
+          </table>
+        </div>
+
+        <!-- Applications -->
+        <div>
+          <h4>Typical Applications</h4>
+          <div class="row">
+            <div class="col-md-6">
+              <ul>
+                <li>Oil Transfer Systems</li>
+                <li>Chemical Handling</li>
+                <li>Lubrication Units</li>
+              </ul>
+            </div>
+            <div class="col-md-6">
+              <ul>
+                <li>Fuel Transfer</li>
+                <li>Industrial Machinery</li>
+                <li>Hydraulic Fluids Circulation</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+       <!-- cap and head (M) -->
+
+         <div class="mt-4">
+          <h4 class="mb-2" style="font-weight: bold;"> Input Head and Capacity </h4>
+          <label for="gl-head" class="form-label">Input Head (m):</label>
+          <input type="number" id="gl-head" class="form-control mb-2" placeholder="input Head (M)">
+
+          <label for="gl-capacity" class="form-label">Input Capacity (m³/h):</label>
+          <input type="number" id="gl-capacity" class="form-control" placeholder="input Capacity (m³/h)">
+
+          <label for="gl-pole" class="form-label">Input Pole:</label>
+          <select id="gl-pole" class="form-select">
+          <option value="2">2 Pole</option>
+          <option value="4">4 Pole</option>
+            </select>
+
+        </div>
+
+        <!-- akhir cap and head -->
+
+        <!-- download -->
+        <div class="pdf-file justify-content-center text-center">
+          <h5 class="mt-4">Download PDF Spec Sheet:</h5>
+          <a href="./pdf/koshin_GL.pdf" target="_blank" class="btn btn-outline-danger mt-2 justify-content-center text-center">
+            <i class="bi bi-file-earmark-pdf-fill"></i> Download PDF
+          </a>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-dark" onclick="addToCart('koshin-gl', 'Koshin GL Gear Pump',
+        document.getElementById('gl-head').value,
+        document.getElementById('gl-capacity').value,
+        document.getElementById('gl-pole').value)">
+          <i class="bi bi-cart-plus-fill"></i> Shop
+        </button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <a 
+          href="https://wa.me/6285775230813?text=Halo%20MJT,%20saya%20tertarik%20dengan%20produk%20Koshin%20GL%20Gear%20Pump" 
+          class="btn btn-success"
+          data-bs-dismiss="modal"
+          onclick="window.open(this.href, '_blank'); return false;"
+        >
+          <i class="bi bi-whatsapp"></i> Contact Us
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- akhir modal product Koshin GL -->
+
+<!-- Footer -->
+<footer class="bg-dark text-light py-3 mt-4">
+  <div class="container d-flex flex-column justify-content-center align-items-center text-center">
+    
+    <!-- Teks + Logo MJT -->
+    <div class="d-flex align-items-center gap-2 mb-2">
+      <p class="mb-0">&copy; 2025 PT. MEGA JAYA TEKINDO.</p>
+      <img src="./img/mjt.png" alt="MJT Logo" class="img-fluid" style="max-height: 25px;">
+    </div>
+
+    <!-- Logo Brand Lain (misal Koshin) -->
+    <div>
+      <img src="./img/koshin.png" alt="Koshin Logo" class="img-fluid" style="max-height: 35px;">
+    </div>
+
+  </div>
+</footer>
+<!-- Akhir Footer -->
+
+
+<!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- Script untuk tombol kembali -->
+  <script>
+    // Optional: Enhance back button functionality
+    document.querySelector('.btn-back').addEventListener('click', function(e) {
+      e.preventDefault();
+      history.back(); // Menggunakan history browser
+    });
+  </script>
+
+  <!-- cart .js -->
+
+<script src="./js/cart.js"></script>
+
+<!-- Akhir cart .js -->
+
+
+
+
+  
+</body>
+</html>

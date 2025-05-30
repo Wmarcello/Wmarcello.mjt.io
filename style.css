@@ -1,22 +1,25 @@
 /* root */
-:root{
+:root {
   interpolate-size: allow-keywords;
 }
 /* Body */
 
-body{
+body {
   height: 3000px;
 }
 
-
 /* agar tidak delay */
-button, a {
+button,
+a {
   touch-action: manipulation;
 }
 
+/* notifikasi di depan */
+#toast-container {
+  z-index: 9999;
+}
+
 /* fix a col product */
-
-
 
 /* akhir fix a col product */
 
@@ -24,19 +27,17 @@ button, a {
 
 /* Tambahkan di style.css */
 .cart-item {
-.spinner-border.spinner-border-sm-custom {
-  width: 1rem;
-  height: 1rem;
-  border-width: 0.15em;
-}
+  .spinner-border.spinner-border-sm-custom {
+    width: 1rem;
+    height: 1rem;
+    border-width: 0.15em;
+  }
 }
 /* Akhir css untuk notifikasi pembelian */
 
 /* Whatsapp button */
 
 /* Tambahkan CSS ini */
-
-
 
 /* Akhir Whatsapp button */
 
@@ -68,7 +69,7 @@ button, a {
   transform: translateX(-50%);
 }
 
-.navbar .belanja{
+.navbar .belanja {
   position: absolute;
   top: 15px;
   right: -8px;
@@ -99,8 +100,6 @@ button, a {
   color: white;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
 }
-
-
 
 /* css wrapped 2024 interpolate-size */
 
@@ -148,7 +147,6 @@ nav ul {
   font-family: "Anton", sans-serif;
   font-optical-sizing: auto;
   font-weight: 500;
-
 }
 /* Akhir css wrapped 2024 interpolate-size */
 
@@ -157,16 +155,16 @@ nav ul {
 /* About Us */
 
 .about ul li i {
-  margin-right: .5rem;
+  margin-right: 0.5rem;
   font-weight: bold;
   color: red;
 }
 
-.about{
+.about {
   padding: 50px;
 }
 
-.about h2{
+.about h2 {
   border-bottom: 2px solid red;
   padding-bottom: 5px;
   width: 200px;
@@ -176,7 +174,7 @@ nav ul {
 }
 /* LOGO TILT JS */
 
-.about .logo{
+.about .logo {
   width: 250px;
   top: 15px;
   bottom: 10px;
@@ -185,7 +183,7 @@ nav ul {
   padding-bottom: 50px;
 }
 
-.logo{
+.logo {
   border: 4px solid red;
   border-radius: 10px;
   box-shadow: 10px 5px 5px black;
@@ -195,7 +193,7 @@ nav ul {
   transition: 0.5s;
   position: relative;
 }
-.logo-name{
+.logo-name {
   text-align: center;
   color: black;
   top: -10px;
@@ -208,14 +206,12 @@ nav ul {
   font-weight: 400;
 }
 
-
-.logo:hover .logo-name{
+.logo:hover .logo-name {
   opacity: 1;
   transform: translate3d(0, 0, 50px);
 }
 
-
-.logo-img{
+.logo-img {
   max-width: 200px;
   margin: auto;
   top: 20px;
@@ -224,7 +220,7 @@ nav ul {
 
 /* Akhir LOGO TILT JS */
 
-.about .logo-img2{
+.about .logo-img2 {
   width: 70px;
   margin-top: 60px;
   border: 2px solid red;
@@ -233,22 +229,21 @@ nav ul {
   float: left;
 }
 
-.about p{
+.about p {
   margin-top: 20px;
 }
 
-.about .p1{
+.about .p1 {
   font-weight: bold;
   margin-top: 60px;
   margin-right: 20px;
   text-align: center;
 }
 
-
 /* Akhir About Us */
 
 /* product */
-.product h2{
+.product h2 {
   padding-top: 100px;
   border-bottom: 2px solid red;
   width: 200px;
@@ -256,9 +251,8 @@ nav ul {
   font-family: "Anton", sans-serif;
   font-weight: 400;
 }
-.product .card a{
+.product .card a {
   text-decoration: none;
- 
 }
 
 /* Brand Logos */
@@ -272,7 +266,6 @@ nav ul {
   overflow: hidden;
   padding: 50px 0;
   background-size: cover;
-
 }
 
 .parallax-overlay {
@@ -283,7 +276,7 @@ nav ul {
   height: 100%;
 }
 
-.brand-logos-parallax h4{
+.brand-logos-parallax h4 {
   color: black;
   font-weight: bold;
   text-align: center;
@@ -307,7 +300,7 @@ nav ul {
 }
 /* akhir brand logo */
 
-.product .card .btn{
+.product .card .btn {
   padding: 5px;
   margin: auto;
   border-radius: 25px;
@@ -318,7 +311,7 @@ nav ul {
   float: right;
 }
 
-.product .card .btn:hover{
+.product .card .btn:hover {
   background-color: black;
   color: white;
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
@@ -327,7 +320,7 @@ nav ul {
 
 /* Contact */
 
-.contact h2{
+.contact h2 {
   padding-top: 50px;
   border-bottom: 2px solid red;
   width: 200px;
@@ -336,79 +329,76 @@ nav ul {
   font-weight: 400;
 }
 
-   .contact iframe{
-    border: 2px solid red;
-   }
+.contact iframe {
+  border: 2px solid red;
+}
 
+.contact .btn {
+  padding: 5px;
+  margin: auto;
+  background-color: red;
+  color: white;
+  font-weight: bold;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+  text-align: center;
+}
 
-   .contact .btn{
-    padding: 5px;
-    margin: auto;
-    background-color: red;
-    color: white;
-    font-weight: bold;
-    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
-    text-align: center;
-   }
+.contact .card-body {
+  width: 300px;
+  margin: auto;
+}
 
-   .contact .card-body{
-    width: 300px;
-    margin: auto;
-   }
+.contact .card-body h5 {
+  font-weight: bold;
+  text-align: center;
+  padding: 20px;
+  border-bottom: 2px solid red;
+}
 
-   .contact .card-body h5{
-     font-weight: bold;
-     text-align: center;
-     padding: 20px;
-     border-bottom: 2px solid red;
+.gmaps {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
 
-   }
+.gmaps iframe {
+  width: 100%;
+  height: 300px;
+  display: block;
+  margin: 0 auto;
+}
 
-   .gmaps {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 0 15px;
-  }
-  
-  .gmaps iframe {
-    width: 100%;
-    height: 300px;
-    display: block;
-    margin: 0 auto;
-  }
+.gmaps .card-header,
+.card-footer,
+.text-body-secondary {
+  background-color: red;
+  color: white;
+}
 
-  .gmaps .card-header , .card-footer, .text-body-secondary{
-    background-color: red;
-    color: white;
-  }
+.gmaps .card-footer img {
+  width: 50px;
+}
 
-  .gmaps .card-footer img{
-    width: 50px;
-  }
+/* field sizing textarea */
+.contact textarea {
+  min-block-size: 3.5rlh;
+  min-inline-size: 10ch;
+  max-inline-size: 50ch;
+  field-sizing: content;
+}
 
-
-  /* field sizing textarea */
-    .contact textarea {
-      min-block-size: 3.5rlh;
-      min-inline-size: 10ch;
-      max-inline-size: 50ch;
-      field-sizing: content;
-    }
-
-    
 /* Akhir Contact */
-
 
 /* Footer */
 
 /* Akhir Footer */
 
 /* Animasi Product view */
-.modal-body ul li i{
+.modal-body ul li i {
   color: gold;
 }
 
-.modal-body ul li .btn{
+.modal-body ul li .btn {
   background-color: #ff0000;
   color: white;
   font-size: 10px;
@@ -417,28 +407,24 @@ nav ul {
   text-align: center;
   border-radius: 25px;
   margin-left: 10px;
-
 }
 
-.modal-body ul li .btn:hover{
+.modal-body ul li .btn:hover {
   background-color: #eaeaea;
   color: #ff0000;
 }
 /* Akhir Animasi Product View */
 
-
-
-
 /* Media Query  */
 
 /* Media Open in mobile */
-@media (min-width: 300px){
-  .jumbotron .wordportfolio{
+@media (min-width: 300px) {
+  .jumbotron .wordportfolio {
     padding-top: 200px;
   }
-  
-  .navbar .icons-cart i{
-    margin-left: 120px;
+
+  .navbar .icons-cart i {
+    margin-left: 110px;
   }
 
   #whatsapp-button {
@@ -447,70 +433,61 @@ nav ul {
     left: 10%;
     width: 80%;
     z-index: 1000;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   }
-  
+
   .cartModal .modal-content {
     padding-bottom: 80px; /* Ruang untuk tombol WA */
   }
 
   /* untuk logo mjt fix bug */
-    .logo-mjt .text-mjt {
+  .logo-mjt .text-mjt {
     opacity: 1 !important;
     transform: translateX(0) !important;
   }
-  
 }
-  /* Media Open in tablet */
-  @media (min-width: 768px){
-    .jumbotron .wordportfolio{
-      padding-top: 400px;
-    }
-
-    .product-card img {
-  height: 180px;
-  object-fit: cover;
-}
-
-.product-card .card-body {
-  display: flex;
-  flex-direction: column;
-}
-
-.product-card .btn {
-  margin-top: auto;
-}
-
-.navbar .icons-cart i{
-    margin-left: 430px;
+/* Media Open in tablet */
+@media (min-width: 768px) {
+  .jumbotron .wordportfolio {
+    padding-top: 400px;
   }
 
-
-        
-  }
-  
-  /* Media Open in desktop */
-  @media(min-width: 1200px){
-    .jumbotron .wordportfolio{
-      padding-top: 150px;
-    }
-
-    .about .paragraf{
-      padding-top: 5px;
-    }
-
-    .product .card{
-      margin: auto;
-  
-    }
-    .contact form{
-      border-left: 3px solid red;
-      padding: 15px;
-     }
-
-  
+  .product-card img {
+    height: 180px;
+    object-fit: cover;
   }
 
+  .product-card .card-body {
+    display: flex;
+    flex-direction: column;
+  }
 
+  .product-card .btn {
+    margin-top: auto;
+  }
+
+  .navbar .icons-cart i {
+    margin: 0;
+  }
+}
+
+/* Media Open in desktop */
+@media (min-width: 1200px) {
+  .jumbotron .wordportfolio {
+    padding-top: 150px;
+  }
+
+  .about .paragraf {
+    padding-top: 5px;
+  }
+
+  .product .card {
+    margin: auto;
+  }
+  .contact form {
+    border-left: 3px solid red;
+    padding: 15px;
+  }
+}
 
 /* Akhir Media Query */

@@ -8,11 +8,17 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Bootstrap Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+        <!-- talwind css -->
+    <link href="./src/output.css" rel="stylesheet">
+
   <style>
 
     /* cart table max width */
 
     /* Tambahkan ini untuk memastikan tidak ada margin/padding di seluruh layar */
+
+ 
 * {
   margin: 0;
   padding: 0;
@@ -177,7 +183,21 @@ body, html {
      touch-action: manipulation;
    }
 
+   /* footer */
+   
+   footer{
+    background-image: url(./img/blue.png);
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 15px;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+   }
 
+   /* akhir footer */
 
 
 
@@ -185,23 +205,6 @@ body, html {
 
 
     /* akhir custome modal */
-
-    /* footer */
-
-    footer{
-      bottom: 0;
-      width: 100%;
-      background-image: url('./img/blue.png');
-      background-size: cover;
-      background-position: center;
-      color: white;
-      padding: 10px;
-      line-height: 160px;
-      text-align: center;
-      font-weight: bold;
-    }
-
-    /* akhir footer */
 
     /* media queery */
     @media (max-width: 560px) {
@@ -212,12 +215,12 @@ body, html {
       max-width: 400px;
       }
 
-      footer{
-        line-height: 80px;
-        font-size: .5rem;
-        text-align: center;
-        
-      }
+      footer img {
+    max-height: 20px !important;
+     }
+      footer p{
+    font-size: 10px !important;
+     }
 
       .modal-image-carousel .carousel-item img {
        max-height: 250px;
@@ -301,7 +304,7 @@ body, html {
         <div class="card" style="max-width: 20rem;">
           <img src="./img/FSA.png" class="card-img-top" alt="Ebara Product 1">
           <div class="card-body" style="flex-grow: 1;">
-            <h5 class="card-title">Ebara FSA Pump</h5>
+            <h5 class="card-title text-2xl font-bold">Ebara FSA Pump</h5>
             <p class="card-text"> Ebara FSA Series centrifugal pumps deliver unmatched efficiency and reliability for industrial fluid handling. and flexible pump if required in use </p>
             <a href="#" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#ebarafsaModal">View</a>
           </div>
@@ -312,7 +315,7 @@ body, html {
           <div class="card" style="max-width: 20rem;">
             <img src="./img/gspump.png" class="card-img-top" alt="Ebara Product 2">
             <div class="card-body" style="flex-grow: 1;">
-              <h5 class="card-title">Ebara GS Pump</h5>
+              <h5 class="card-title text-2xl font-bold">Ebara GS Pump</h5>
               <p class="card-text">  Ebara GS Series represents the pinnacle of end-suction centrifugal pump technology, combining robust construction with energy-efficient performance. </p>
               <a href="#" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#ebaragsModal">View</a>
             </div>
@@ -326,7 +329,7 @@ body, html {
         <div class="card" style="max-width: 18rem;">
           <img src="./img/EVMSG.png" class="card-img-top" alt="Ebara Product 1">
           <div class="card-body" style="flex-grow: 1;">
-            <h5 class="card-title">Ebara EVMSG Pump</h5>
+            <h5 class="card-title text-2xl font-bold">Ebara EVMSG Pump</h5>
             <p class="card-text"> High-efficiency vertical multistage pumps for space-constrained installations. </p>
             <a href="#" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#ebaraevmsgModal">View</a>
           </div>
@@ -337,7 +340,7 @@ body, html {
           <div class="card" style="max-width: 18rem;">
             <img src="./img/CDX.png" class="card-img-top" alt="Ebara Product 2">
             <div class="card-body" style="flex-grow: 1;">
-              <h5 class="card-title">Ebara CDX Pump</h5>
+              <h5 class="card-title text-2xl font-bold">Ebara CDX Pump</h5>
               <p class="card-text"> Horizontal multistage pump for high-pressure industrial applications. </p>
               <a href="#" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#ebaracdxModal">View</a>
             </div>
@@ -352,8 +355,8 @@ body, html {
           <div class="card" style="width: 18rem;">
             <img src="./img/DLDFDVS.png" class="card-img-top" alt="Ebara Product 2">
             <div class="card-body" style="flex-grow: 1;">
-              <h5 class="card-title">Ebara DL,DS,DF,DVS Pump</h5>
-              <p class="card-text"> EBARA DL, DS, DF and DVS are vertical in-line pump series that are efficient, space-saving, and suitable for clean water applications.</p>
+              <h5 class="card-title text-2xl font-bold">Ebara DL,DS,DF,DVS Pump</h5>
+              <p class="card-text"> EBARA DL, DS, DF and DVS are efficient, space-saving, in-line vertical pump series suitable for clean water applications. and provide consistent performance.</p>
               <a href="#" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#ebarasubModal">View</a>
             </div>
           </div>
@@ -363,7 +366,7 @@ body, html {
             <div class="card" style="width: 18rem;">
               <img src="./img/3D.png" class="card-img-top" alt="Ebara Product 2">
               <div class="card-body" style="flex-grow: 1;">
-                <h5 class="card-title">Ebara Centrifugal 3D Pump</h5>
+                <h5 class="card-title text-2xl font-bold">Ebara Centrifugal 3D Pump</h5>
                 <p class="card-text"> EBARA 3D is a horizontal end-suction pump series that is efficient, space-saving, and suitable for clean water applications. </p>
                 <a href="#" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#ebara3DModal">View</a>
               </div>
@@ -1042,6 +1045,7 @@ body, html {
 
           <div class="mb-3">
   <label class="form-label"><strong>Pilih Type yang Diinginkan:</strong></label><br>
+  <div class="container">
   <div class="form-check form-check-inline">
     <input class="form-check-input" type="radio" name="typeOption" value="DL" id="typeDL">
     <label class="form-check-label" for="typeDL">DL</label>
@@ -1057,6 +1061,7 @@ body, html {
   <div class="form-check form-check-inline">
     <input class="form-check-input" type="radio" name="typeOption" value="DVS" id="typeDVS">
     <label class="form-check-label" for="typeDVS">DVS</label>
+  </div>
   </div>
 </div>
             <!-- Akhir Pilih Type -->
@@ -1247,21 +1252,24 @@ body, html {
 
 <!-- Akhir Product Ebara 3D Models pump -->
 
-<!-- FOOTER -->
-
+<!-- Footer -->
 <footer class="bg-dark text-light py-3 mt-4">
-  <div class="container">
-    <div class="row">
-      <div class="col-10 col- md-8 justify-content-center">
-        <p>&copy; 2025 PT. MEGA JAYA TEKINDO. <img src="./img/mjt.png" alt="MJT" class="img-fluid-brand-logo" style="max-height: 30px;"></p>
-      </div>
-      <div class="col-2 col-md-2 col-lg-2 mt-4 text-center">
-        <img src="./img/ebara.png" alt="Ebara" class="img-fluid brand-logo" style="max-height: 70px;">
-      </div>
-     
+  <div class="container d-flex flex-column justify-content-center align-items-center text-center">
+    
+    <!-- Teks + Logo MJT -->
+    <div class="d-flex align-items-center gap-2 mb-2">
+      <p class="mb-0">&copy; 2025 PT. MEGA JAYA TEKINDO.</p>
+      <img src="./img/mjt.png" alt="MJT Logo" class="img-fluid" style="max-height: 25px;">
     </div>
+
+    <!-- Logo Brand Lain (misal Koshin) -->
+    <div>
+      <img src="./img/ebara.png" alt="Koshin Logo" class="img-fluid" style="max-height: 35px;">
+    </div>
+
   </div>
 </footer>
+
 
 <!-- Akhir Footer -->
 
