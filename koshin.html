@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width">
   <title>Koshin Product</title>
 
   <!-- Bootstrap CSS -->
@@ -42,9 +42,8 @@ body, html {
 
 
     /* Akhir Body html dll */
-
      /* Custom Jumbotron Style */
-    .jumbotron-ebara {
+    .jumbotron-koshin {
       background-image: url('./img/gray_bg.png');
       font-family: 'Anton', sans-serif;
       background-size: cover;
@@ -58,7 +57,7 @@ body, html {
       position: relative;
     }
     
-    .jumbotron-ebara::before {
+    .jumbotron-koshin::before {
       content: '';
       position: absolute;
       top: 0;
@@ -91,6 +90,64 @@ body, html {
   padding-top: 20px;
   border-top: 2px solid black;
 }
+
+ .koshin-product .card{
+      box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4);
+      margin: auto;
+    }
+
+    .koshin-product .card .btn{
+      box-shadow: 2px 2px 2px rgba(7, 23, 206, 0.5);
+    }
+
+
+    /* disabled wa */
+
+       .disabled-wa {
+         opacity: 0.6;
+         pointer-events: none;
+      }
+
+        button, a {
+     touch-action: manipulation;
+   }
+
+   /* akhir disabled wa */
+
+    .carousel-item img {
+      max-height: 350px;
+      object-fit: contain;
+      margin: 0 auto;
+    }
+
+    .modal-image-carousel .carousel-control-prev-icon,
+   .modal-image-carousel .carousel-control-next-icon {
+     background-color: #000;
+     border-radius: 25%;
+     width: 30px;
+     height: 30px;
+     font-size: 20px;
+     color: #000;
+   }
+
+    /* Specification table */
+    .spec-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    .spec-table th, .spec-table td {
+      border: 1px solid #dee2e6;
+      padding: 8px;
+      text-align: left;
+    }
+    
+    .spec-table th {
+      background-color: #f8f9fa;
+    }
+
+    /* akhir modal Koshin product */
+
 
      /* footer */
  
@@ -148,7 +205,7 @@ body, html {
 <body>
 
   <!-- Jumbotron dengan Tombol Back -->
-  <section class="jumbotron-ebara">
+  <section class="jumbotron-koshin">
     <a href="index.html" class="btn btn-outline-light btn-back">
       <i class="bi bi-arrow-left"></i> Back to Home
     </a>

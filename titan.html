@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" viewport="width=device-width">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Titan Electric Product</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- talwind css -->
+    <link href="./src/output.css" rel="stylesheet">
+
+  <!-- css langsung -->
+   <style>
+    
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+    .page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* notifikasi di depan */
+#toast-container {
+  z-index: 9999;
+}
+
+
+    /* Akhir Body html dll */
+
+     /* Custom Jumbotron Style */
+    .jumbotron-titan {
+      background-image: url('./img/blue_titan.png');
+      font-family: 'Anton', sans-serif;
+      background-size: cover;
+      background-position: center;
+      height: 65vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      position: relative;
+    }
+    
+    .jumbotron-titan::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+    
+    .jumbotron-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      padding: 2rem;
+    }
+    
+    .btn-back {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      z-index: 2;
+    }
+
+    /* btn cart */
+
+    /* notifikasi di depan */
+#toast-container {
+  z-index: 9999;
+}
+    /* Akhir Jumbotron dan btn cart */
+
+    .titan-product .card{
+      box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4);
+    }
+
+    .titan-product .card .btn{
+      box-shadow: 2px 2px 2px rgba(7, 23, 206, 0.5);
+    }
+
+    /* product description */
+    .product-description{
+  margin-top: 50px;
+  padding-top: 20px;
+  border-top: 2px solid black;
+}
+
+/* Akhir product description */
+
+/* spec table */
+
+ /* Specification table */
+    .spec-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    .spec-table th, .spec-table td {
+      border: 1px solid #dee2e6;
+      padding: 8px;
+      text-align: left;
+    }
+    
+    .spec-table th {
+      background-color: #f8f9fa;
+    }
+
+/* Akhir spec table */
+
+/* Caraousel Image */
+
+.carousel-item img {
+      max-height: 350px;
+      object-fit: contain;
+      margin: 0 auto;
+    }
+
+    .modal-image-carousel .carousel-control-prev-icon,
+   .modal-image-carousel .carousel-control-next-icon {
+     background-color: #000;
+     border-radius: 25%;
+     width: 30px;
+     height: 30px;
+     font-size: 20px;
+     color: #000;
+   }
+
+/* Akhir Caraousel Image */
+
+     /* footer */
+ 
+      footer{
+        background-image: url('./img/blue_titan.png');
+        background-color: white;
+        background-position: center;
+        background-size : cover;
+        bottom: 0;
+        top: 0;
+        left: 0;
+        right: 0;
+        padding: 10px;
+      }
+
+    /* akhir footer */
+
+     /* media queery */
+    @media (max-width: 565px) {
+
+
+      .modal-image-carousel .carousel-item img {
+       max-height: 250px;
+  }
+
+     .modal-footer .btn {
+  width: 100%;
+  height: 40px;
+
+}
+   .modal-dialog{
+    width: 100%;
+    max-width: 400px;
+   }
+
+  footer img {
+    max-height: 20px !important;
+  }
+  footer p{
+    font-size: 10px !important;
+  }
+
+
+
+
+      
+
+    }
+
+    /* akhir media queery */
+
+   </style>
+</head>
+<body>
+
+  <!-- Jumbotron dengan Tombol Back -->
+  <section class="jumbotron-titan">
+    <a href="index.html" class="btn btn-outline-light btn-back">
+      <i class="bi bi-arrow-left"></i> Back to Home
+    </a>
+    
+    <div class="jumbotron-content">
+      <h1 class="display-4"> TITAN </h1>
+      <p class="lead"> our Trusted Partner in High-Performance Electric Solutions, Designed to Keep Your Operations Running Smoothly. </p>
+      <hr class="my-4">
+      <p> Titan Electric — Since 2025, Delivering Reliable, Efficient, and Durable Power Solutions for the Demands of Modern Industry.</p>
+    </div>
+  </section>
+
+  <!-- akhir jumbotron -->
+
+  <!-- shopping cart -->
+
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <button type="button" class="btn btn-primary mt-5 btn-lg" id="shop-cart" data-bs-toggle="modal" data-bs-target="#cartModal">
+          <i class="bi bi-cart"></i> <span id="cart-count"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- akhir shopping cart -->
+
+  <!-- shopping cart modal-->
+
+  <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg"style="max-width: 800px;">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="cartModalLabel">Shopping Cart</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="cart-items"></div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-danger btn-co" onclick="checkout()" id="whatsapp-button" disabled><i class="bi bi-whatsapp" ></i> Checkout</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- akhir shopping cart -->
+
+  <!-- Titan Products awal -->
+
+  <section class="titan-product">
+    <div class="container">
+      <div class="row justify-content-center" style="display: flex;">
+        <div class="col-md-6 col-sm-12 col-lg-4 m-4" style="max-width: 19rem;">
+        <div class="card" style="max-width: 20rem;">
+          <img src="./img/titancart/titan_1.png" class="card-img-top" alt="Koshin Product 1">
+          <div class="card-body" style="flex-grow: 1;">
+            <h4 class="card-title text-2xl font-bold color-blue"> Titan Electric</h4>
+            <p class="card-text"> Titan Electric — Delivering Unmatched Power and Long-Lasting Performance for the Toughest Industrial Demands. </p>
+            <a href="#" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#titanModal">View</a>
+          </div>
+        </div>
+        </div>
+    </div>
+  </section>
+
+  <!-- Akhir Titan Products Awal -->
+
+  <!-- TITAN ELECTRIC Product Modal -->
+
+ <!-- Modal Product Titan Electric -->
+
+<div class="modal fade" id="titanModal" tabindex="-1" aria-labelledby="titanModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-fullscreen-sm-down" style="max-width: 800px; width: 100%;">
+    <class class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="titanModalLabel">Titan Electric Motor</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body justify-content-center">
+
+        <!-- Image Carousel -->
+        <div id="titanCarousel" class="carousel slide modal-image-carousel mb-4" data-bs-ride="carousel" data-bs-interval="2900">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="./img/titancart/titan_1.png" class="d-block w-100 img-fluid" alt="Titan Pump Front View">
+            </div>
+            <div class="carousel-item">
+              <img src="./img/titancart/titan_cart_1.png" class="d-block w-100" alt="Titan Pump Curve">
+            </div>
+            <div class="carousel-item">
+              <img src="./img/titan3.png" class="d-block w-100" alt="Titan Pump Diagram">
+            </div>
+          </div>
+        </div>
+
+        <!-- Product Description -->
+        <div class="mb-4">
+          <h4 class="product-description">Product Description</h4>
+          <p>The Titan Electric Pump Series offers reliable and durable centrifugal pumping solutions for a variety of industrial applications. Since 2025, Titan Electric has been committed to delivering high-performance electric power systems, ensuring operational excellence and efficiency across industries.</p>
+          <ul>
+            <li>Heavy-duty construction for long-term reliability</li>
+            <li>Optimized hydraulic design for maximum efficiency</li>
+            <li>Available in 2-pole and 4-pole configurations</li>
+            <li>Low maintenance, high-performance sealing options</li>
+            <li>Ideal for water, chemical, and HVAC systems</li>
+          </ul>
+        </div>
+
+        <!-- Specifications Table -->
+        <div class="mb-4">
+          <h4>Technical Specifications</h4>
+          <table class="spec-table">
+            <tr>
+              <th>Model</th>
+              <td>Titan Series</td>
+            </tr>
+            <tr>
+              <th>Capacity</th>
+              <td>Up to 550 m³/h</td>
+            </tr>
+            <tr>
+              <th>Head</th>
+              <td>Up to 95 m</td>
+            </tr>
+            <tr>
+              <th>Power</th>
+              <td>1.1 - 110 kW</td>
+            </tr>
+            <tr>
+              <th>Max. Pressure</th>
+              <td>Up to 16 bar</td>
+            </tr>
+            <tr>
+              <th>Temperature Range</th>
+              <td colspan="3">-5°C to +120°C</td>
+            </tr>
+          </table>
+        </div>
+
+        <!-- Applications -->
+        <div>
+          <h4>Typical Applications</h4>
+          <div class="row">
+            <div class="col-md-6">
+              <ul>
+                <li>Industrial water transfer</li>
+                <li>Circulation systems</li>
+                <li>Boiler feed and pressure boosting</li>
+              </ul>
+            </div>
+            <div class="col-md-6">
+              <ul>
+                <li>Chemical fluid handling</li>
+                <li>Cooling and HVAC</li>
+                <li>Process water supply</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+          <!-- Input Kw -->
+         <!-- Input KW -->
+    <div class="mb-3">
+      <label for="electric-motor" class="form-label">Pilih Daya (KW)</label>
+      <select id="electric-motor" class="form-select">
+        <option value="">-- Pilih (Kw) --</option>
+        <option value="0.75">0.75 Kw</option>
+        <option value="1.5">1.5 Kw</option>
+        <option value="2.2">2.2 Kw</option>
+        <option value="3">3 Kw</option>
+        <option value="4">4 Kw</option>
+        <option value="5.5">5 Kw</option>
+        <option value="7.5">7.5 Kw</option>
+        <option value="11">11 Kw</option>
+        <option value="15">15 Kw</option>
+        <option value="18.5">18.5 Kw</option>
+        <option value="22">22 Kw</option>
+        <option value="30">30 Kw</option>
+        <option value="37">37 Kw</option>
+        <option value="45">45 Kw</option>
+        <option value="55">55 Kw</option>
+        <option value="75">75 Kw</option>
+        <option value="90">90 Kw</option>
+        <option value="110">110 Kw</option>
+        <option value="132">132 Kw</option>
+        <option value="160">160 Kw</option>
+      </select>
+    </div>
+
+    <!-- Input Pole -->
+    <div class="mb-3">
+      <label for="titan-pole" class="form-label">Pilih Pole</label>
+      <select id="titan-pole" class="form-select">
+        <option value="">-- Pilih Pole --</option>
+        <option value="2">2 Pole</option>
+        <option value="4">4 Pole</option>
+        <option value="6">6 Pole</option>
+      </select>
+    </div>
+
+          <!-- Pilih Type Pump -->
+
+  <div class="mb-3">
+  <label class="form-label"><strong>Type Electric Motor:</strong></label><br>
+  <div class="container">
+  <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="typeOption" value="B3" id="typeB3">
+    <label class="form-check-label" for="typeB3">B3</label>
+  </div>
+  <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="typeOption" value="B5" id="typeB5">
+    <label class="form-check-label" for="typeB5">B5</label>
+  </div>
+   <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="typeOption" value="B35" id="typeB35">
+    <label class="form-check-label" for="typeB35">B35</label>
+  </div>
+  </div>
+</div>
+
+            <!-- Akhir Pilih Type -->
+
+        <!-- Download PDF -->
+        <div class="pdf-file justify-content-center text-center mt-4">
+          <h5>Download PDF Spec Sheet:</h5>
+          <a href="./pdf/TITAN_ELECTRIC.pdf" target="_blank" class="btn btn-outline-danger mt-2">
+            <i class="bi bi-file-earmark-pdf-fill"></i> Download PDF
+          </a>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-dark btn-lg"onclick="addToCart(
+        'electric-motor',
+        'Titan Electric Pump',
+          '', '', // kosongkan head & capacity
+           document.getElementById('titan-pole').value,
+            getSelectedType(),
+           document.getElementById('electric-motor').value
+            )">
+
+          <i class="bi bi-cart-plus-fill"></i> Shop
+        </button>
+        <button type="button" class="btn btn-secondary btn-lg" data-bs-dismiss="modal">Close</button>
+        <a 
+          href="https://wa.me/6285775230813?text=Halo%20MJT,%20saya%20tertarik%20dengan%20produk%20Titan%20Electric%20Pump" 
+          class="btn btn-success btn-lg"
+          data-bs-dismiss="modal"
+          onclick="window.open(this.href, '_blank'); return false;">
+          <i class="bi bi-whatsapp"></i> Contact Us
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <!-- Akhir Titan Electric Product Modal -->
+
+
+  <!-- Footer -->
+<footer class="bg-dark text-light py-3 mt-4">
+  <div class="container d-flex flex-column justify-content-center align-items-center text-center">
+    
+    <!-- Teks + Logo MJT -->
+    <div class="d-flex align-items-center gap-2 mb-2">
+      <p class="mb-0">&copy; 2025 PT. MEGA JAYA TEKINDO.</p>
+      <img src="./img/mjt.png" alt="MJT Logo" class="img-fluid" style="max-height: 25px;">
+    </div>
+
+    <!-- Logo Brand Lain (misal Koshin) -->
+    <div>
+      <img src="./img/titan.png" alt="Koshin Logo" class="img-fluid" style="max-height: 35px;">
+    </div>
+
+  </div>
+</footer>
+<!-- Akhir Footer -->
+
+
+<!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- Script untuk tombol kembali -->
+  <script>
+    // Optional: Enhance back button functionality
+    document.querySelector('.btn-back').addEventListener('click', function(e) {
+      e.preventDefault();
+      history.back(); // Menggunakan history browser
+    });
+  </script>
+
+  <!-- cart .js -->
+
+<script src="./js/cart.js"></script>
+
+<!-- Akhir cart .js -->
+
+<!-- Selected Type of Product -->
+
+  <script>
+function getselectedtype() {
+  const selected = document.querySelector('input[name="typeOption"]:checked');
+  return selected ? selected.value : '';
+}
+</script>
+
+  <!-- Akhir Selected Type of Product -->
+
+  <!-- titan electro produk -->
+
+  <script>
+  function getSelectedType() {
+    const selected = document.querySelector('input[name="typeOption"]:checked');
+    return selected ? selected.value : '';
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    updateCartCounter();
+  });
+
+  document.getElementById('shop-cart').addEventListener('click', displayCartItems);
+</script>
+
+  <!-- akhir titan electro produk -->
+  
+</body>
+</html>

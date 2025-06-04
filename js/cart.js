@@ -8,8 +8,8 @@ function initCart() {
   }
 }
 
-function generateCartKey(productId, head = '', capacity = '', pole = '', selectedtype = '') {
-  return `${productId}_${head}_${capacity}_${pole}_${selectedtype}`;
+function generateCartKey(productId, head = '', capacity = '', pole = '', selectedtype = '', kw = '') {
+  return `${productId}_${head}_${capacity}_${pole}_${selectedtype}_${kw}`;
 }
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -30,18 +30,24 @@ document.addEventListener('DOMContentLoaded', function() {
 // MENAMBAH ITEM KE CART
 // =========================
 
-function addToCart(productId, productName, head = '', capacity = '', pole = '', selectedtype = '',) {
-
-   // Cek jika field Head atau Capacity kosong
-  if (!head || !capacity) {
-    showToast('Mohon isi Head dan Capacity terlebih dahulu.');
-    return;
-  }
-
+function addToCart(productId, productName, head = '', capacity = '', pole = '', selectedtype = '', kw = '') {
   initCart();
 
-  const uniqueId = generateCartKey(productId, head, capacity , pole, selectedtype);
-  let cart = JSON.parse(localStorage.getItem('cart'));
+  // Validasi berdasarkan jenis produk
+  if (productId === 'electric-motor') {
+    if (!kw || !pole || !selectedtype) {
+      showToast('Mohon isi semua field KW, Pole, dan Tipe untuk Electro Motor.');
+      return;
+    }
+  } else {
+    if (!head || !capacity) {
+      showToast('Mohon isi Head dan Capacity terlebih dahulu.');
+      return;
+    }
+  }
+
+  const uniqueId = generateCartKey(productId, head, capacity, pole, selectedtype, kw);
+  let cart = JSON.parse(localStorage.getItem('cart')) || {};
 
   if (cart[uniqueId]) {
     cart[uniqueId].quantity += 1;
@@ -51,9 +57,11 @@ function addToCart(productId, productName, head = '', capacity = '', pole = '', 
       quantity: 1,
       head: head,
       capacity: capacity,
+      pole: pole,
       selectedtype: selectedtype,
-      addedAt: new Date().toISOString(),
-      pole: pole
+      kw: kw,
+      productType: productId === 'electric-motor' ? 'electro' : 'pump',
+      addedAt: new Date().toISOString()
     };
   }
 
@@ -63,13 +71,13 @@ function addToCart(productId, productName, head = '', capacity = '', pole = '', 
   showToast(`${productName} added to cart`);
 
   // Reset input
-  const inputIds = ['fsa-head', 'fsa-capacity', 'gs-head', 'gs-capacity','evmsg-head', 'evmsg-capacity','cdx-head','cdx-capacity','ebarasub-head','ebarasub-capacity','ebara3d-head','ebara3d-capacity','torishima-head','torishima-capacity','gl-head','gl-capacity'];
+  const inputIds = ['fsa-head', 'fsa-capacity', 'gs-head', 'gs-capacity','evmsg-head', 'evmsg-capacity','cdx-head','cdx-capacity','ebarasub-head','ebarasub-capacity','ebara3d-head','ebara3d-capacity','torishima-head','torishima-capacity','gl-head','gl-capacity','titan-pole','electric-motor'];
   inputIds.forEach(id => {
     const input = document.getElementById(id);
     if (input) input.value = '';
   });
 
-    // Reset radio button typeOption
+  // Reset radio button typeOption
   const selectedRadio = document.querySelector('input[name="typeOption"]:checked');
   if (selectedRadio) selectedRadio.checked = false;
 }
@@ -119,8 +127,6 @@ function createToastContainer() {
 // TAMPILKAN ITEM DI MODAL
 // =========================
 
-// tester function
-
 function displayCartItems() {
   const cart = JSON.parse(localStorage.getItem('cart')) || {};
   const container = document.getElementById('cart-items');
@@ -129,25 +135,26 @@ function displayCartItems() {
 
   container.innerHTML = Object.keys(cart).length === 0 
     ? '<p class="text-center">Your cart is empty</p>'
-    :Object.entries(cart).map(([id, item]) => `
-  <div class="cart-item mb-3 p-3 border rounded">
-    <h6 class="mb-2">${item.name}</h6>
-    
-    <div class="d-flex align-items-center mb-2">
-      <button class="btn btn-sm btn-outline-secondary me-2" onclick="decreaseQuantity('${id}')">−</button>
-      <span>${item.quantity}</span>
-      <button class="btn btn-sm btn-outline-secondary ms-2" onclick="increaseQuantity('${id}')">+</button>
-    </div>
-
-    <div class="text-muted small mb-2">
-      H: ${item.head || '-'} (m) | C: ${item.capacity || '-'} (m³/h) | P: ${item.pole || '-'} (Pole) | Type: ${item.selectedtype || '-'}
-    </div>
-
-    <button class="btn btn-sm btn-outline-danger" onclick="removeFromCart('${id}')">
-      <i class="bi bi-trash"></i> Remove
-    </button>
-  </div>
-      `).join('');
+    : Object.entries(cart).map(([id, item]) => {
+      const isElectro = item.productType === 'electro';
+      return `
+        <div class="cart-item mb-3 p-3 border rounded">
+          <h6 class="mb-2">${item.name}</h6>
+          <div class="d-flex align-items-center mb-2">
+            <button class="btn btn-sm btn-outline-secondary me-2" onclick="decreaseQuantity('${id}')">−</button>
+            <span>${item.quantity}</span>
+            <button class="btn btn-sm btn-outline-secondary ms-2" onclick="increaseQuantity('${id}')">+</button>
+          </div>
+          <div class="text-muted small mb-2">
+            ${isElectro 
+              ? `(Kw): ${item.kw || '-'} | P: ${item.pole || '-'} (Pole) | Type: ${item.selectedtype || '-'}` 
+              : `H: ${item.head || '-'} (m) | C: ${item.capacity || '-'} (m³/h) | P: ${item.pole || '-'} (Pole) | Type: ${item.selectedtype || '-'}`}
+          </div>
+          <button class="btn btn-sm btn-outline-danger" onclick="removeFromCart('${id}')">
+            <i class="bi bi-trash"></i> Remove
+          </button>
+        </div>`;
+    }).join('');
 }
 
 // =========================
@@ -240,14 +247,20 @@ function checkout() {
 
   let message = "Halo, saya ingin Bertanya tentang produk ini Pake Type apa ya:\n\n";
   message += Object.entries(cart)
-    .map(([id, item]) =>
-  `- ${item.name} (Qty: ${item.quantity})` +
-  `\n   H: ${item.head || '-'} m | C: ${item.capacity || '-'} m³/h | P: ${item.pole || '-'} Pole | Type: ${item.selectedtype || '-'} ` 
-)
-      .join('\n\n');
+    .map(([id, item]) => {
+      const isElectro = item.productType === 'electro';
+      let line = `- ${item.name} (Qty: ${item.quantity})`;
+      if (isElectro) {
+        line += `\n   KW: ${item.kw || '-'} | P: ${item.pole || '-'} Pole | Type: ${item.selectedtype || '-'}`;
+      } else {
+        line += `\n   H: ${item.head || '-'} m | C: ${item.capacity || '-'} m³/h | P: ${item.pole || '-'} Pole | Type: ${item.selectedtype || '-'}`;
+      }
+      return line;
+    })
+    .join('\n\n');
 
   message += "\n\nMohon konfirmasi dengan saya Tentang Produk ini. Terima kasih!";
-  window.open(`https://wa.me/6285775230813?text=${encodeURIComponent(message)}`, '_blank',150);
+  window.open(`https://wa.me/6285775230813?text=${encodeURIComponent(message)}`, '_blank');
 }
 
 // =========================
@@ -261,5 +274,6 @@ window.addEventListener('storage', function(event) {
     displayCartItems();
   }
 });
+
 
 
