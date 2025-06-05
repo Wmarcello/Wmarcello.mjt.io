@@ -48,9 +48,44 @@
               <li class="nav-item">
                 <a class="nav-link active choice" href="#about">About</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link active choice" href="#product">Product</a>
-              </li>
+
+               <!--  -->
+              <!-- Dropdown Megamenu Produk -->
+<li class="nav-item dropdown position-static">
+  <a class="nav-link active choice" href="#" data-bs-toggle="dropdown">
+    Produk
+  </a>
+  <div class="dropdown-menu w-100 mt-0 p-4 shadow bg-light">
+    <div class="row">
+      <div class="col-md-3">
+        <h6><strong>Pump</strong></h6>
+        <ul class="list-unstyled pump-list">
+          <li><a href="./ebara.html">Ebara</a></li>
+          <li><a href="./torishima.html">Torishima</a></li>
+        </ul>
+      </div>
+      <!-- Tambah kategori lain jika perlu -->
+    </div>
+
+    <!-- Baris logo brand -->
+    <div class="row mt-4 brand-logos text-center">
+      <div class="col">
+        <img src="./img/ebara.png" alt="Ebara" class="img-fluid mx-2" style="height: 25px;">
+        <img src="./img/torishima.png" alt="KSB" class="img-fluid mx-2" style="height: 25px;">
+        <img src="./img/koshin.png" alt="Torishima" class="img-fluid mx-2" style="height: 25px;">
+        <img src="./img/titan.png" alt="titan" class="img-fluid mx-2" style="height: 25px;">
+        <img src="./img/cummins.png" alt="cummins" class="img-fluid mx-2" style="height: 25px;">
+        <img src="./img/isuzu.png" alt="isuzu" class="img-fluid mx-2" style="height: 25px;">
+        <img src="./img/grundfos2.png" alt="Grundfos" class="img-fluid mx-2" style="height: 20px;">
+        <img src="./img/ksb2.png" alt="KSB" class="img-fluid mx-2" style="height: 30px;">
+        <img src="./img/teco.png" alt="teco" class="img-fluid mx-2" style="height: 35px;">
+        <img src="./img/siemens.png" alt="Siemens" class="img-fluid mx-2" style="height: 15px;">
+      </div>
+    </div>
+  </div>
+</li>
+
+        <!--  -->
               <li class="nav-item">
                 <a class="nav-link active choice" href="#contact">Contact</a>
               </li>
@@ -202,8 +237,47 @@
             </ul>
           </div>
         </div>
-      </div>
     </section>
+
+    <!-- Image About us -->
+
+    <div class="gallery-container">
+        <h2 class="gallery-title">History of MEGA JAYA TEKINDO</h2>
+
+        <div class="image-carousel-custom" id="customGallery">
+            <div class="image-card side-left" data-index="0">
+                <img src="./img/team/team1.png" alt="Bloom">
+                <div class="image-text">TEAM</div>
+            </div>
+
+            <div class="image-card active" data-index="1">
+                <img src="https://via.placeholder.com/350x450/B873D2/FFFFFF?text=vivid" alt="Vivid">
+                <div class="image-text">vivid</div>
+            </div>
+
+            <div class="image-card side-right" data-index="2">
+                <img src="https://via.placeholder.com/300x400/FFD991/FFFFFF?text=petaled" alt="Petaled">
+                <div class="image-text">petaled</div>
+            </div>
+
+            <div class="carousel-control-custom carousel-control-prev-custom" onclick="moveCarousel(-1)">
+                &lt;
+            </div>
+            <div class="carousel-control-custom carousel-control-next-custom" onclick="moveCarousel(1)">
+                &gt;
+            </div>
+        </div>
+
+        <div class="carousel-indicators-custom">
+            <button class="active" data-slide-to="1"></button>
+            <button data-slide-to="2"></button>
+            <button data-slide-to="3"></button>
+            <button data-slide-to="4"></button>
+            <button data-slide-to="5"></button>
+            </div>
+    </div>
+
+    <!-- Akhir Image about us -->
 
     <!-- Akhir About Us -->
 
@@ -236,7 +310,7 @@
 
       <!-- Brand 2 -->
       <div class="col-6 col-md-2 col-lg-2 mb-4 text-center">
-        <img src="./img/siemens.png" alt="Siemens" class="img-fluid brand-logo" style="max-height: 30px;">
+        <img src="./img/siemens.png" alt="Siemens" class="img-fluid brand-logo" style="max-height: 20px;">
       </div>
 
       <!-- Brand 3 -->
@@ -272,6 +346,11 @@
       <!-- Brand 9 -->
       <div class="col-6 col-md-2 col-lg-2 mb-4 text-center">
         <img src="./img/isuzu.png" alt="isuzu" class="img-fluid brand-logo" style="max-height: 50px;">
+      </div>
+
+      <!-- Brand 10 -->
+      <div class="col-6 col-md-2 col-lg-2 mb-4 text-center">
+        <img src="./img/titan.png" alt="titan" class="img-fluid brand-logo" style="max-height: 50px;">
       </div>
 
     </div>
@@ -369,9 +448,8 @@
             <h5> Brand Us :</h5>
             <div class="d-flex flex-wrap align-items-center gap-4 mb-4">
               <img src="./img/ebara.png" alt="Ebara" style="height: 40px; object-fit: contain;">
-              <img src="./img/ksb2.png" alt="KSB" style="height: 40px; object-fit: contain;">
               <img src="./img/torishima.png" alt="Torishima" style="height: 40px; object-fit: contain;">
-              <img src="./img/grundfos2.png" alt="Grundfos" style="height: 40px; object-fit: contain;">
+              <img src="./img/koshin.png" alt="Koshin" style="height: 40px; object-fit: contain;">
             </div>
 
           </div>
@@ -602,7 +680,7 @@
         <!-- Copyright -->
         <div class="copyright mt-4">
           &copy; 2025 Copyright 
-          <img src="./img/logomjt.png" alt="MJT" class="logo-img" style="max-height: 30px;">
+          <img src="./img/logomjt.png" alt="MJT" class="logo-img" style="max-height: 20px;">
 
         </div>
       </section>
@@ -906,6 +984,203 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 </script>
+
+<!-- Navbar Product scroll nutup menu -->
+
+<script>
+  window.addEventListener('scroll', function () {
+    // Tutup semua dropdown Bootstrap saat scroll
+    const dropdowns = document.querySelectorAll('.dropdown-menu.show');
+    dropdowns.forEach(menu => {
+      const toggle = menu.closest('.dropdown').querySelector('[data-bs-toggle="dropdown"]');
+      if (toggle) {
+        const dropdownInstance = bootstrap.Dropdown.getInstance(toggle);
+        if (dropdownInstance) {
+          dropdownInstance.hide();
+        }
+      }
+    });
+  });
+</script>
+
+
+<!-- Akhir -->
+
+<!-- Carousel image About us -->
+
+ <script>
+        // Data gambar Anda (ganti dengan path gambar sebenarnya)
+        const images = [
+            { src: "./img/team/team1.png", text: "TEAM US" },
+            { src: "./img/team/hydrant.png", text: "Hydrant Project" },
+            { src: "./img/team/booster.png", text: "Booster Project" },
+            { src: "https://via.placeholder.com/350x450/FF6347/FFFFFF?text=Product+D", text: "Product D" },
+            { src: "https://via.placeholder.com/350x450/4682B4/FFFFFF?text=Product+E", text: "Product E" },
+            { src: "https://via.placeholder.com/350x450/20B2AA/FFFFFF?text=Product+F", text: "Product F" },
+            { src: "https://via.placeholder.com/350x450/DAA520/FFFFFF?text=Product+G", text: "Product G" },
+            { src: "https://via.placeholder.com/350x450/8A2BE2/FFFFFF?text=Product+H", text: "Product H" }
+            // Tambahkan gambar lainnya di sini
+        ];
+
+        let currentIndex = 0; // Mulai dari indeks 0, gambar pertama akan menjadi tengah
+        let startX = 0;
+        let endX = 0;
+        const swipeThreshold = 50; // Jarak swipe minimum untuk dianggap sebagai geser
+
+        const carouselElement = document.getElementById('customGallery');
+
+        function updateCarousel() {
+            carouselElement.innerHTML = ''; // Kosongkan carousel
+
+            // Tambahkan panah kontrol
+            const prevControl = document.createElement('div');
+            prevControl.className = 'carousel-control-custom carousel-control-prev-custom';
+            prevControl.innerHTML = '&lt;';
+            prevControl.onclick = () => moveCarousel(-1);
+            carouselElement.appendChild(prevControl);
+
+            const nextControl = document.createElement('div');
+            nextControl.className = 'carousel-control-custom carousel-control-next-custom';
+            nextControl.innerHTML = '&gt;';
+            nextControl.onclick = () => moveCarousel(1);
+            carouselElement.appendChild(nextControl);
+
+
+            // Tentukan gambar mana yang akan ditampilkan
+            const totalImages = images.length;
+            
+            // Logika untuk menampilkan 3 gambar atau hanya gambar tengah di mobile
+            if (window.innerWidth <= 768) { // Mobile view: hanya gambar tengah
+                const centerImage = images[currentIndex];
+                const centerCard = createImageCard(centerImage, 'active', currentIndex);
+                carouselElement.insertBefore(centerCard, nextControl);
+            } else { // Desktop view: 3 gambar
+                const leftIndex = (currentIndex - 1 + totalImages) % totalImages;
+                const centerIndex = currentIndex;
+                const rightIndex = (currentIndex + 1) % totalImages;
+
+                const leftCard = createImageCard(images[leftIndex], 'side-left', leftIndex);
+                const centerCard = createImageCard(images[centerIndex], 'active', centerIndex);
+                const rightCard = createImageCard(images[rightIndex], 'side-right', rightIndex);
+
+                carouselElement.insertBefore(leftCard, nextControl);
+                carouselElement.insertBefore(centerCard, nextControl);
+                carouselElement.insertBefore(rightCard, nextControl);
+            }
+            
+            updateIndicators();
+        }
+
+        function createImageCard(imageData, className, index) {
+            const card = document.createElement('div');
+            card.className = `image-card ${className}`;
+            card.setAttribute('data-index', index);
+            card.innerHTML = `
+                <img src="${imageData.src}" alt="${imageData.text}">
+                <div class="image-text">${imageData.text}</div>
+            `;
+            return card;
+        }
+
+        function moveCarousel(direction) {
+            const totalImages = images.length;
+            currentIndex = (currentIndex + direction + totalImages) % totalImages;
+            updateCarousel();
+        }
+
+        function updateIndicators() {
+            const indicatorsContainer = document.querySelector('.carousel-indicators-custom');
+            indicatorsContainer.innerHTML = ''; // Kosongkan indikator lama
+
+            images.forEach((_, index) => {
+                const button = document.createElement('button');
+                button.setAttribute('data-slide-to', index);
+                if (index === currentIndex) {
+                    button.classList.add('active');
+                }
+                button.onclick = () => {
+                    currentIndex = index;
+                    updateCarousel();
+                };
+                indicatorsContainer.appendChild(button);
+            });
+        }
+
+        // --- Touch/Swipe Events ---
+        carouselElement.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+            carouselElement.classList.add('dragging');
+        });
+
+        carouselElement.addEventListener('touchmove', (e) => {
+            endX = e.touches[0].clientX;
+            // Ini bisa digunakan untuk efek "seret" visual jika diperlukan,
+            // tapi untuk saat ini kita hanya menghitung pergeseran di touchend
+        });
+
+        carouselElement.addEventListener('touchend', () => {
+            const diffX = endX - startX;
+            carouselElement.classList.remove('dragging');
+
+            if (Math.abs(diffX) > swipeThreshold) {
+                if (diffX > 0) { // Geser ke kanan (previous)
+                    moveCarousel(-1);
+                } else { // Geser ke kiri (next)
+                    moveCarousel(1);
+                }
+            }
+            startX = 0; // Reset
+            endX = 0;   // Reset
+        });
+
+        // Optional: Untuk desktop mouse drag (bukan swipe, tapi mirip)
+        let isDragging = false;
+        let mouseStartX = 0;
+
+        carouselElement.addEventListener('mousedown', (e) => {
+            if (window.innerWidth > 768) return; // Hanya aktifkan di mobile (jika ingin berbeda dari panah)
+            isDragging = true;
+            mouseStartX = e.clientX;
+            carouselElement.classList.add('dragging');
+        });
+
+        carouselElement.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            e.preventDefault(); // Mencegah pemilihan teks
+            // Efek visual drag bisa ditambahkan di sini
+        });
+
+        carouselElement.addEventListener('mouseup', (e) => {
+            if (!isDragging) return;
+            isDragging = false;
+            carouselElement.classList.remove('dragging');
+            const diffX = e.clientX - mouseStartX;
+            if (Math.abs(diffX) > swipeThreshold) {
+                if (diffX > 0) {
+                    moveCarousel(-1);
+                } else {
+                    moveCarousel(1);
+                }
+            }
+        });
+
+        carouselElement.addEventListener('mouseleave', () => {
+            isDragging = false;
+            carouselElement.classList.remove('dragging');
+        });
+
+
+        // Handle window resize untuk update tampilan (3 gambar vs 1 gambar)
+        window.addEventListener('resize', updateCarousel);
+
+
+        // Inisialisasi carousel saat halaman dimuat
+        document.addEventListener('DOMContentLoaded', () => {
+            updateCarousel();
+        });
+    </script>
+
+<!-- Akhir Carousel image -->
     
   </body>
 </html>
