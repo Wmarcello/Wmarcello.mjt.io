@@ -350,7 +350,7 @@ nav ul {
   transition: background-color 0.3s ease;
 }
 .carousel-indicators-custom button.active {
-  background-color: #007bff; /* Warna biru Bootstrap */
+  background-color: red; /* Warna biru Bootstrap */
   transform: scale(1.2);
 }
 
@@ -371,27 +371,11 @@ nav ul {
   .image-card.side-right {
     display: none; /* Menyembunyikan gambar samping di mobile */
   }
-  .carousel-control-custom {
-    top: auto;
-    bottom: 10px; /* Pindah kontrol ke bawah */
-    transform: none;
-    width: 35px;
-    height: 35px;
-    font-size: 1.2rem;
-  }
-  .carousel-control-prev-custom {
-    left: 20%;
-    margin-left: 0;
-  }
-  .carousel-control-next-custom {
-    right: 20%;
-    margin-right: 0;
-  }
-  .carousel-indicators-custom {
-    margin-top: 20px;
-  }
   .image-card .image-text {
     font-size: 1.8rem;
+  }
+  .carousel-control-custom {
+    display: none; /* Sembunyikan panah navigasi di layar kecil */
   }
 }
 
@@ -403,10 +387,7 @@ nav ul {
     font-size: 1.5rem;
   }
   .carousel-control-custom {
-    bottom: 5px; /* Sesuaikan posisi panah di layar sangat kecil */
-    width: 30px;
-    height: 30px;
-    font-size: 1rem;
+    display: none; /* Sembunyikan panah navigasi di layar kecil */
   }
 }
 /* Akhir Carousel About us */
